@@ -571,9 +571,9 @@ input[type="radio"].visually-hidden {
   .main-menu__link:focus, .main-menu__link:hover {
     background-color: #643a79; }
 
-* {
-  outline: 1px solid red; }
-
+/* * {
+  outline: 1px solid red;
+} */
 .banner {
   background-color: #87509c;
   color: #ffffff;
