@@ -1,0 +1,64 @@
+/* $base: #f7f6f0;
+$darken: darken(#f7f6f0, 30%);
+$back: darken(#f7f6f0, 40%); */
+
+/* ------ FONTS ------ */
+$font-regular: "TitilliumWeb Regular", Helvetica, Arial;
+$font-bold: "TitilliumWeb Bold", Helvetica, Arial;
+$font-semibold: "TitilliumWeb SemiBold", Helvetica, Arial;
+$font-italic: "TitilliumWeb Italic", Helvetica, Arial;
+$font-light: "TitilliumWeb Light", Helvetica, Arial;
+
+/* ----- FONT SIZES ----- */
+$font-size-regular: 16px;
+$font-size-regular-middle: 18px;
+$font-size-banner-title: 42.16px;
+$font-size-button: 18px;
+$font-size-section-title: 40px;
+$font-size-section-subtitle: 18px;
+$font-size-section-item-name: 24px;
+$font-size-section-quotation: 21px;
+$font-size-diagram: 50px;
+
+/* ----- LINE HEIGHTS ----- */
+$line-height-banner-title: 1.158;
+$line-height-section-subtitle: 1.4444;
+$line-height-section-regular-small: 1.5;
+$line-height-section-quotation: 1.4857;
+$line-height-regular: 1.2;
+
+/* ------ COLORS ------ */
+$color-regular-white: #ffffff;
+$color-regular-dark: #3c4761;
+
+$color-lightest-blue: #30bae7;
+$color-light-blue: #299ec5;
+$color-middle-blue: #3c5499;
+$color-dark-blue: #344b8e;
+$color-darkest-blue: #273a71;
+
+$color-light-pale: #e7f1f8;
+$color-middle-pale: #dfe8ed;
+$color-dark-pale: #bdd1df;
+
+$color-light-grey: #878787;
+$color-middle-grey: #787878;
+$color-dark-grey: #393939;
+
+$color-light-yellow: #ffdd99;
+$color-middle-yellow: #ebc985;
+
+$color-middle-purple: #87509c;
+$color-dark-purple: #643a79;
+
+$color-middle-orange: #eb7d4b;
+$color-dark-orange: #c86a40;
+
+$color-light-green: #17c2a4;
+$color-middle-green: #15c7a8;
+$color-dark-green: #14a58c;
+
+$color-middle-pink: #d74680;
+$color-dark-pink: #b73c6d;
+
+$color-red: #ff4444;

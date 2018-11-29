@@ -1,0 +1,87 @@
+%clear-list {
+  list-style: none;
+  display: inline-block;
+}
+
+%clear-link {
+  display: inline-block;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+%buttons {
+  width: 294px;
+  height: 66px;
+
+  text-transform: uppercase;
+  font-family: $font-semibold;
+  font-size: $font-size-button;
+  color: $color-regular-white;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    transform: scale(1.02, 1.02);
+  }
+}
+
+%single-item {
+  display: inline-block;
+
+  width: 100%;
+  max-width: 260px;
+
+  padding-left: 32px;
+  padding-right: 32px;
+
+  &:not(:nth-last-of-type(1)) {
+    margin-bottom: 13%;
+  }
+}
+
+%double-item {
+  display: inline-block;
+
+  width: 100%;
+  max-width: 540px;
+
+  &:not(:nth-last-of-type(1)) {
+    margin-bottom: 10%;
+  }
+}
+
+%form-reset {
+  color: $color-regular-white;
+  font-size: $font-size-regular-middle;
+
+  border: none;
+  border-radius: 4px;
+  background-color: $color-darkest-blue;
+
+  padding: 22px;
+
+  vertical-align: top;
+
+  &::placeholder {
+    color: white;
+    opacity: 1;
+  }
+
+  &:placeholder-shown::before {
+    content: "sadasd";
+    font-size: 16px;
+    display: inline-block;
+    width: 20px;
+    color: $color-red;
+  }
+
+  &:focus {
+    outline: none;
+
+    &::placeholder {
+      opacity: 0;
+    }
+  }
+}
