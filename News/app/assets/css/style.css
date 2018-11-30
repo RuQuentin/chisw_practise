@@ -18,7 +18,7 @@ body {
 body,
 html {
   min-height: 100vh;
-  overflow: hidden; }
+  /*   overflow: hidden; */ }
 
 /*! normalize.css v4.1.1 | MIT License | github.com/necolas/normalize.css */
 /**
