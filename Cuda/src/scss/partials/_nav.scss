@@ -14,7 +14,9 @@
 }
 
 .navigation__wrapper {
-  /*   position: relative; */
+  padding-top: 5.0909%;
+  padding-left: 3.7%;
+  padding-right: 1%;
 }
 
 .navigation {
@@ -33,7 +35,6 @@
   background-size: cover;
 
   &:focus + .main-menu {
-    /* display: block; */
     z-index: 5;
   }
 }
@@ -43,7 +44,6 @@
 
   position: absolute;
   left: 0;
-  /* display: none; */
   z-index: -5;
 
   width: 100%;

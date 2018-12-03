@@ -9,29 +9,29 @@
   background-color: $color-middle-purple;
   color: $color-regular-white;
   text-align: center;
-  padding-top: 45%;
-  min-height: 100vh;
+  /* min-height: 100vh; */
 }
 
 .banner__title {
   font-family: $font-bold;
   font-size: $font-size-banner-title * 0.6;
-  margin-bottom: 58px;
+  line-height: $line-height-banner-title;
+  padding-top: 45%;
+  margin-bottom: 57px;
 }
 
 .section {
-  padding-top: 10.5454%;
   text-align: center;
-  padding-bottom: 11.6363%;
-  min-height: 100vh;
 }
 
 .section__title {
   font-family: $font-bold;
   font-size: $font-size-section-title * 0.8;
+  letter-spacing: 4px;
   line-height: $line-height-regular;
   text-transform: uppercase;
-  margin-bottom: 26px;
+  padding-top: 9.8%;
+  margin-bottom: 17px;
 
   &::after {
     content: "";
@@ -40,13 +40,18 @@
     height: 4px;
     border: none;
     margin: auto;
-    margin-top: 18px;
+    margin-top: 14px;
   }
 }
 
 .section__subtitle {
   font-size: $font-size-section-subtitle;
-  margin-bottom: 6.7272%;
+  line-height: $line-height-section-subtitle;
+  letter-spacing: 0.4px;
+  max-width: 606px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 7.1%;
 }
 
 .services {
@@ -56,10 +61,12 @@
   background-color: $color-light-green;
 
   .services__list {
+    font-size: 0;
     width: 100%;
     max-width: 260px;
     margin-left: auto;
     margin-right: auto;
+    padding-bottom: 11.5%;
 
     .services__item {
       @extend %single-item;
@@ -67,15 +74,15 @@
       .services__picture {
         content: "";
         display: block;
-        width: 130px;
+        width: auto;
         height: 130px;
         margin-left: auto;
         margin-right: auto;
-        margin-bottom: 30px;
+        margin-bottom: 54px;
         /*       margin-bottom: 58px; */
         background-repeat: no-repeat;
         background-size: contain;
-        background-position: center;
+        background-position: center bottom;
       }
 
       .services__picture-branding {
@@ -97,12 +104,18 @@
       .services__name {
         font-family: $font-bold;
         font-size: $font-size-section-item-name;
+        line-height: $line-height-regular;
+        letter-spacing: 0.4px;
         text-transform: uppercase;
+
+        margin-bottom: 17px;
       }
 
       .services__description {
         font-family: $font-light;
+        font-size: $font-size-regular;
         line-height: $line-height-section-regular-small;
+        letter-spacing: 0.3px;
       }
     }
   }
@@ -113,11 +126,17 @@
 
   background-color: $color-light-pale;
 
+  .section__subtitle {
+    max-width: 660px;
+  }
+
   .team__list {
+    font-size: 0;
     width: 100%;
     max-width: 260px;
     margin-left: auto;
     margin-right: auto;
+    padding-bottom: 11.1%;
 
     .team__item {
       @extend %single-item;
@@ -129,26 +148,29 @@
         height: 200px;
         border-radius: 50%;
         background-color: $color-light-grey;
-        margin-bottom: 38px;
+        margin-bottom: 33px;
       }
 
       .team__name {
         font-family: $font-bold;
         font-size: $font-size-section-item-name;
+        letter-spacing: 0.4px;
         text-transform: uppercase;
         margin: auto;
-        margin-bottom: 8px;
       }
 
       .team__position {
+        font-size: $font-size-regular;
         color: $color-lightest-blue;
-        margin-bottom: 24px;
+        letter-spacing: 0.4px;
+        margin-bottom: 18px;
       }
 
       .team__description {
         font-family: $font-light;
+        font-size: $font-size-regular;
         line-height: $line-height-section-regular-small;
-        margin-bottom: 26px;
+        margin-bottom: 29px;
       }
 
       .socials__list {
@@ -207,10 +229,12 @@
   @include underline($color-middle-pale);
 
   .skills__list {
+    font-size: 0;
     width: 100%;
     max-width: 260px;
     margin-left: auto;
     margin-right: auto;
+    padding-bottom: 10.3%;
 
     .skills__item {
       @extend %single-item;
@@ -218,6 +242,7 @@
       .skills__name {
         font-family: $font-bold;
         font-size: $font-size-section-item-name;
+        letter-spacing: 0.4px;
         text-transform: uppercase;
       }
     }
@@ -246,8 +271,12 @@
   color: $color-dark-grey;
   background-color: $color-light-yellow;
 
+  .section__subtitle {
+    margin-bottom: 3.8%;
+  }
+
   .portfolio__filter-list {
-    margin-bottom: 5.6363%;
+    margin-bottom: 5.9%;
     width: 200px;
     margin-left: auto;
     margin-right: auto;
@@ -291,13 +320,21 @@
   }
 
   .portfolio__list {
-    margin-bottom: 7.4545%;
+    margin-bottom: 7.1%;
 
     .portfolio__item {
       @extend %double-item;
 
       font-size: $font-size-regular-middle;
       text-transform: uppercase;
+    }
+
+    .portfolio__picture {
+      margin-bottom: 2.9%;
+    }
+
+    .portfolio__name {
+      letter-spacing: 0.5px;
     }
   }
 }
@@ -308,7 +345,13 @@
   color: $color-regular-white;
   background-color: $color-middle-pink;
 
-  padding-bottom: 11.8182%;
+  .section__subtitle {
+    margin-bottom: 6.4%;
+  }
+
+  .opinions__list {
+    padding-bottom: 11.6%;
+  }
 
   .opinions__item {
     @extend %double-item;
@@ -331,8 +374,9 @@
       font-family: $font-italic;
       font-size: $font-size-section-quotation;
       line-height: $line-height-section-quotation;
+      letter-spacing: 0.1px;
       text-align: center;
-      margin-bottom: 5.098%;
+      margin-bottom: 6.6%;
       quotes: "	\201D" "	\201D";
 
       &::before {
@@ -347,13 +391,18 @@
     .opinions__name {
       font-family: $font-bold;
       font-size: $font-size-section-item-name;
+      line-height: $line-height-regular;
+      letter-spacing: 0.4px;
       text-transform: uppercase;
       text-align: center;
-      margin-bottom: 4px;
+      margin-bottom: 1px;
     }
 
     .opinions__position {
+      font-size: $font-size-regular-middle;
       color: $color-light-yellow;
+      line-height: $line-height-regular;
+      letter-spacing: 0.4px;
       text-align: center;
     }
   }
@@ -365,9 +414,16 @@
   color: $color-regular-white;
   background-color: $color-middle-blue;
 
+  .section__subtitle {
+    max-width: 100%;
+    margin-bottom: 6.9%;
+  }
+
   .contact-form {
     width: 100%;
     max-width: 860px;
+
+    padding-bottom: 10.85%;
 
     margin-left: auto;
     margin-right: auto;
@@ -379,7 +435,7 @@
     width: 100%;
     height: 56px;
 
-    margin-bottom: 2.3636%;
+    margin-bottom: 3%;
   }
 
   .contact-form__email {
@@ -388,7 +444,7 @@
     width: 100%;
     height: 56px;
 
-    margin-bottom: 2.3636%;
+    margin-bottom: 3%;
   }
 
   .contact-form__message {
@@ -399,6 +455,6 @@
     width: 100%;
     height: 200px;
 
-    margin-bottom: 5.4545%;
+    margin-bottom: 6.9%;
   }
 }

@@ -1,16 +1,17 @@
 .banner__button {
   @extend %buttons;
+  margin-bottom: 13.3%;
 
   background-image: linear-gradient(
     to bottom,
     $color-middle-orange 95%,
     $color-dark-orange 95%
   );
-  margin-bottom: 13.4545%;
 }
 
 .portfolio__button {
   @extend %buttons;
+  margin-bottom: 10.2%;
 
   background-image: linear-gradient(
     to bottom,

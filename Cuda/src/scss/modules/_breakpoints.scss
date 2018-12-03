@@ -25,13 +25,9 @@
 
   .navigation {
     position: absolute;
-    right: 0px;
+    right: 8px;
     bottom: 0px;
     width: initial;
-  }
-
-  .banner {
-    padding-top: 248px;
   }
 
   .main-menu__icon {
@@ -44,10 +40,6 @@
 
     .main-menu__item {
       float: left;
-
-      &:not(:nth-last-of-type(1)) {
-        margin-right: 5px;
-      }
     }
 
     .main-menu__link {
@@ -59,6 +51,7 @@
   }
 
   .banner__title {
+    padding-top: 20.8%;
     font-size: $font-size-banner-title * 0.7;
   }
 
@@ -69,6 +62,10 @@
   %single-item {
     &:nth-last-of-type(-n + 2) {
       margin-bottom: 0;
+    }
+
+    &:nth-of-type(2n-1) {
+      margin-right: 20px;
     }
   }
 
@@ -109,6 +106,34 @@
 }
 
 @media only screen and (min-width: 768px) {
+  %double-item {
+    width: 49%;
+
+    &:nth-of-type(2n-1) {
+      float: left;
+    }
+
+    &:nth-of-type(2n) {
+      float: right;
+    }
+
+    &:not(:nth-last-of-type(-n + 2)) {
+      margin-bottom: 5.4%;
+    }
+
+    &:nth-last-of-type(-n + 2) {
+      margin-bottom: 0;
+    }
+  }
+
+  .main-menu {
+    .main-menu__item {
+      &:not(:nth-last-of-type(1)) {
+        margin-right: 13px;
+      }
+    }
+  }
+
   .container {
     padding-left: 20px;
     padding-right: 20px;
@@ -126,40 +151,17 @@
 
   .contact {
     .contact-form__name {
-      width: 49%;
+      width: 48.1%;
       float: left;
     }
 
     .contact-form__email {
-      width: 49%;
+      width: 48.1%;
       float: right;
-    }
-  }
-
-  %double-item {
-    width: 49%;
-
-    &:nth-of-type(2n-1) {
-      float: left;
-    }
-
-    &:nth-of-type(2n) {
-      float: right;
-    }
-
-    &:not(:nth-last-of-type(-n + 2)) {
-      margin-bottom: 5.8181%;
-    }
-
-    &:nth-last-of-type(-n + 2) {
-      margin-bottom: 0;
     }
   }
 
   .footer {
-    /*     padding-top: 46px;
-    padding-bottom: 46px; */
-
     .footer-socials__list {
       font-size: $font-size-section-item-name * 0.8;
     }
@@ -174,6 +176,10 @@
     &:nth-of-type(n) {
       margin-bottom: 0;
     }
+
+    &:not(:last-of-type) {
+      margin-right: 20px;
+    }
   }
 
   .banner__title {
@@ -182,49 +188,46 @@
 
   .services {
     .services__list {
-      max-width: 1100px;
+      max-width: 100%;
     }
   }
 
   .team {
     .team__list {
-      max-width: 1100px;
+      max-width: 100%;
     }
   }
 
   .skills {
     .skills__list {
-      max-width: 1100px;
+      max-width: 100%;
     }
   }
 
   .portfolio {
     .portfolio__list {
-      max-width: 1100px;
+      max-width: 100%;
     }
   }
 
   .opinions__list {
-    max-width: 1100px;
+    max-width: 100%;
 
     .opinions__item {
-      max-width: 500px;
-
-      &:nth-of-type(2n-1) {
-        float: left;
-      }
-
-      &:nth-of-type(2n) {
-        float: right;
-      }
+      max-width: 511px;
 
       .opinions__photo {
         float: left;
+        margin-left: 0px;
+        margin-right: 44px;
       }
 
       .opinions__item-wrapper {
-        float: right;
+        /*         float: right; */
+        display: inline-block;
         max-width: 346px;
+        margin-left: 0px;
+        margin-right: 0px;
       }
 
       .opinions__description {
@@ -238,15 +241,22 @@
       .opinions__position {
         text-align: left;
       }
+
+      &:not(:nth-last-of-type(-n + 2)) {
+        margin-bottom: 13.3%;
+      }
     }
   }
 
   .footer {
-    padding-top: 46px;
-    padding-bottom: 46px;
-
     .footer-socials__list {
       font-size: $font-size-section-item-name;
+    }
+
+    .footer-socials__item {
+      &:not(:nth-last-of-type(1)) {
+        margin-right: 5.9%;
+      }
     }
   }
 }

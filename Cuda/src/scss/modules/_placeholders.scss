@@ -33,8 +33,8 @@
   width: 100%;
   max-width: 260px;
 
-  padding-left: 32px;
-  padding-right: 32px;
+  padding-left: 30px;
+  padding-right: 30px;
 
   &:not(:nth-last-of-type(1)) {
     margin-bottom: 13%;
@@ -67,14 +67,6 @@
   &::placeholder {
     color: white;
     opacity: 1;
-  }
-
-  &:placeholder-shown::before {
-    content: "sadasd";
-    font-size: 16px;
-    display: inline-block;
-    width: 20px;
-    color: $color-red;
   }
 
   &:focus {
