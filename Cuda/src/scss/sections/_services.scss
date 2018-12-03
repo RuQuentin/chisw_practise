@@ -1,0 +1,65 @@
+.services {
+  @include underline($color-dark-green);
+
+  color: $color-regular-white;
+  background-color: $color-light-green;
+}
+
+.services__item {
+  @extend %single-item;
+}
+
+.services__list {
+  font-size: 0;
+  width: 100%;
+  max-width: 260px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 11.5%;
+}
+
+.services__picture {
+  content: "";
+  display: block;
+  width: auto;
+  height: 130px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 54px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center bottom;
+}
+
+.services__picture-branding {
+  background-image: url("../img/flag.png");
+}
+
+.services__picture-design {
+  background-image: url("../img/crayon.png");
+}
+
+.services__picture-development {
+  background-image: url("../img/gears.png");
+}
+
+.services__picture-science {
+  background-image: url("../img/rocket.png");
+}
+
+.services__name {
+  font-family: $font-bold;
+  font-size: $font-size-section-item-name;
+  line-height: $line-height-regular;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+
+  margin-bottom: 17px;
+}
+
+.services__description {
+  font-family: $font-light;
+  font-size: $font-size-regular;
+  line-height: $line-height-section-regular-small;
+  letter-spacing: 0.3px;
+}

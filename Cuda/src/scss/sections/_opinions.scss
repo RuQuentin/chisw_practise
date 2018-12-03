@@ -1,0 +1,68 @@
+.opinions {
+  @include underline($color-dark-pink);
+
+  color: $color-regular-white;
+  background-color: $color-middle-pink;
+
+  .section__subtitle {
+    margin-bottom: 6.4%;
+  }
+}
+
+.opinions__list {
+  padding-bottom: 11.6%;
+}
+
+.opinions__item {
+  @extend %double-item;
+
+  max-width: 400px;
+  text-align: left;
+}
+
+.opinions__photo {
+  display: block;
+  width: 98px;
+  height: 98px;
+  background-color: $color-middle-grey;
+  border-radius: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+}
+
+.opinions__description {
+  font-family: $font-italic;
+  font-size: $font-size-section-quotation;
+  line-height: $line-height-section-quotation;
+  letter-spacing: 0.1px;
+  text-align: center;
+  margin-bottom: 6.6%;
+  quotes: "	\201D" "	\201D";
+
+  &::before {
+    content: open-quote;
+  }
+
+  &::after {
+    content: close-quote;
+  }
+}
+
+.opinions__name {
+  font-family: $font-bold;
+  font-size: $font-size-section-item-name;
+  line-height: $line-height-regular;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 1px;
+}
+
+.opinions__position {
+  font-size: $font-size-regular-middle;
+  color: $color-light-yellow;
+  line-height: $line-height-regular;
+  letter-spacing: 0.4px;
+  text-align: center;
+}

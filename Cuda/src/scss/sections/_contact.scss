@@ -1,0 +1,50 @@
+.contact {
+  @include underline($color-darkest-blue);
+
+  color: $color-regular-white;
+  background-color: $color-middle-blue;
+
+  .section__subtitle {
+    max-width: 100%;
+    margin-bottom: 6.9%;
+  }
+}
+
+.contact-form {
+  width: 100%;
+  max-width: 860px;
+
+  padding-bottom: 10.85%;
+
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contact-form__name {
+  @extend %form-reset;
+
+  width: 100%;
+  height: 56px;
+
+  margin-bottom: 3%;
+}
+
+.contact-form__email {
+  @extend %form-reset;
+
+  width: 100%;
+  height: 56px;
+
+  margin-bottom: 3%;
+}
+
+.contact-form__message {
+  @extend %form-reset;
+
+  resize: vertical;
+
+  width: 100%;
+  height: 200px;
+
+  margin-bottom: 6.9%;
+}
