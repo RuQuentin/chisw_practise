@@ -1,15 +1,35 @@
 .article {
+  max-width: 724px;
+  padding-left: 3.5912%;
+  padding-left: 3.5912%;
+}
+
+.article__title-wrapper {
+  @extend %underline-section;
+
+  display: flex;
+  justify-content: space-between;
 }
 
 .article__title {
   font-size: $font-size-article-title;
   color: $font-color-article-title;
+
+  max-width: 453px;
 }
 
 .article__date {
   font-size: $font-size-article-date;
   color: $font-color-article-date;
   text-transform: uppercase;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 80px;
+  height: 80px;
 }
 
 .article__day {
@@ -24,12 +44,16 @@
 }
 
 .article__intro {
+  @extend %underline-section;
+
   font-size: $font-size-article-intro;
   color: $font-color-article-intro;
   font-style: italic;
 }
 
 .article__section {
+  @extend %underline-section;
+
   font-size: $font-size-regular;
   color: $font-color-regular;
 }
@@ -45,7 +69,7 @@
 .article__image-wrapper {
 }
 
-.article__image {
+.article__image-large {
 }
 
 .article__image-caption {
@@ -54,4 +78,9 @@
 }
 
 .article__image-small {
+  float: left;
+
+  margin-top: 32px;
+  margin-right: 32px;
+  margin-bottom: 32px;
 }

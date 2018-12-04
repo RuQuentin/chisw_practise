@@ -7,6 +7,9 @@
 .footer__menu {
   @extend %clear-list;
 
+  display: flex;
+  justify-content: space-between;
+
   color: $font-color-footer;
 }
 
@@ -15,6 +18,16 @@
 }
 
 .footer__menu-list {
+  @extend %clear-list;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer__menu-column {
+}
+
+.footer__menu-column-list {
   @extend %clear-list;
 }
 

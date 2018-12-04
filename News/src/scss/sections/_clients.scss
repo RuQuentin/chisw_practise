@@ -1,4 +1,7 @@
 .clients {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .clients__title {
@@ -8,9 +11,16 @@
 
 .clients__list {
   @extend %clear-list;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  flex-basis: 740px;
 }
 
 .clients__item {
+  max-height: 44px;
 }
 
 .clients__link {

@@ -7,6 +7,12 @@
   @extend %clear-list;
 
   font-size: $font-size-header-menu-1st;
+
+  display: flex;
+  justify-content: space-between;
+  width: 470px;
+
+  position: relative;
 }
 
 .header__menu-link-1st-level {
@@ -25,6 +31,8 @@
 
   font-size: $font-size-header-menu;
   background-color: $color-background-main-menu;
+
+  position: absolute;
 }
 
 .header__menu-link-2nd-level {
@@ -43,6 +51,10 @@
 
   font-size: $font-size-header-menu;
   background-color: $color-background-main-menu;
+
+  position: absolute;
+  top: 0;
+  left: 102%;
 }
 
 .header__menu-link-3rd-level {

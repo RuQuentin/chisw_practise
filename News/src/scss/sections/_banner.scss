@@ -1,8 +1,19 @@
 .banner {
   background-color: $color-background-banner;
+
+  display: flex;
+  justify-content: start;
+
+  border-top: 7px solid $color-border-banner;
 }
 
 .banner__image {
+  width: 100%;
+  display: block;
+  max-width: 245px;
+  height: 128px;
+  background-image: url("../img/banner__image.jpg");
+  background-repeat: no-repeat;
 }
 
 .banner__title {

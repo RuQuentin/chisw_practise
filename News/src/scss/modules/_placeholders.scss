@@ -7,3 +7,7 @@
   text-decoration: none;
   cursor: pointer;
 }
+
+%underline-section {
+  border-bottom: 2px solid $color-underline-section;
+}

@@ -3,4 +3,14 @@
   max-width: 919px;
   padding-right: 20px;
   padding-left: 20px;
+
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.container__main {
+  @extend %underline-section;
+
+  display: flex;
+  justify-content: space-between;
 }
