@@ -1,0 +1,56 @@
+.header__menu {
+  font-size: $font-size-header-menu;
+}
+
+/* ---------- 1st level ---------- */
+.header__menu-list-1st-level {
+  @extend %clear-list;
+
+  font-size: $font-size-header-menu-1st;
+}
+
+.header__menu-link-1st-level {
+  @extend %clear-link;
+
+  color: $font-color-main-menu-1st;
+
+  &:hover {
+    color: $font-color-main-menu-1st-hover;
+  }
+}
+
+/* ---------- 2nd level ---------- */
+.header__menu-list-2nd-level {
+  @extend %clear-list;
+
+  font-size: $font-size-header-menu;
+  background-color: $color-background-main-menu;
+}
+
+.header__menu-link-2nd-level {
+  @extend %clear-link;
+
+  color: $font-color-main-menu;
+
+  &:hover {
+    color: $font-color-main-menu-hover;
+  }
+}
+
+/* ---------- 3rd level ---------- */
+.header__menu-list-3rd-level {
+  @extend %clear-list;
+
+  font-size: $font-size-header-menu;
+  background-color: $color-background-main-menu;
+}
+
+.header__menu-link-3rd-level {
+  @extend %clear-link;
+
+  color: $font-color-main-menu;
+
+  &:hover {
+    color: $font-color-main-menu-hover;
+  }
+}

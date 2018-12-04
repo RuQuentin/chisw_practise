@@ -1,0 +1,21 @@
+.news__navigation {
+}
+
+.news__navigation-list {
+  @extend %clear-list;
+}
+
+.news__navigation-item {
+}
+
+.news__navigation-link {
+  @extend %clear-link;
+}
+
+.news__navigation-button {
+}
+
+.news__navigation-title {
+  font-size: $font-size-news-navigation;
+  color: $font-color-news-navigation;
+}

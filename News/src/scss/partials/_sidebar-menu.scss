@@ -1,0 +1,99 @@
+.sidebar {
+}
+
+.sidebar__title {
+  font-size: $font-size-sidebar-title;
+  color: $font-color-sidebar-title;
+}
+
+.sidebar__menu {
+}
+
+.sidebar__menu-list-1st-level {
+  @extend %clear-list;
+}
+
+.sidebar__menu-item {
+  &:hover {
+    color: $font-color-sidebar-menu-hover;
+  }
+
+  &:active {
+    color: $font-color-sidebar-menu-active;
+    background-color: $color-background-sidebar-menu-active;
+  }
+}
+
+.sidebar__menu-link {
+  @extend %clear-link;
+
+  font-size: $font-size-sidebar-menu;
+  color: $font-color-sidebar-menu;
+
+  &:hover {
+    color: $font-color-sidebar-menu-hover;
+  }
+
+  &:active {
+    color: $font-color-sidebar-menu-active;
+    background-color: $color-background-sidebar-menu-active;
+  }
+}
+
+.sidebar__menu-list-2nd-level {
+  @extend %clear-list;
+
+  background-color: $color-background-sidebar-menu-2nd;
+}
+
+.sidebar__menu-item-2nd-level {
+  &:hover {
+    color: $font-color-sidebar-menu-hover;
+  }
+
+  &:active {
+    color: $font-color-sidebar-menu-active;
+    background-color: $color-background-sidebar-menu-active;
+  }
+}
+
+.sidebar__menu-link-2nd-level {
+  @extend %clear-link;
+
+  font-size: $font-size-sidebar-menu;
+  color: $font-color-sidebar-menu;
+
+  &:hover {
+    color: $font-color-sidebar-menu-hover;
+  }
+
+  &:active {
+    color: $font-color-sidebar-menu-active;
+    background-color: $color-background-sidebar-menu-active;
+  }
+}
+
+.sidebar__menu-list-3nd-level {
+  @extend %clear-list;
+
+  background-color: $color-background-sidebar-menu-3rd;
+}
+
+.sidebar__menu-item-3nd-level {
+}
+
+.sidebar__menu-link-3nd-level {
+  @extend %clear-link;
+
+  font-size: $font-size-sidebar-menu;
+  color: $font-color-sidebar-menu;
+
+  &:hover {
+    color: $font-color-sidebar-menu-hover;
+  }
+
+  &:active {
+    color: $font-color-sidebar-menu-active;
+    background-color: $color-background-sidebar-menu-active;
+  }
+}

@@ -1,0 +1,57 @@
+.article {
+}
+
+.article__title {
+  font-size: $font-size-article-title;
+  color: $font-color-article-title;
+}
+
+.article__date {
+  font-size: $font-size-article-date;
+  color: $font-color-article-date;
+  text-transform: uppercase;
+}
+
+.article__day {
+  font-size: $font-size-article-day;
+  color: $font-color-article-day;
+}
+
+.article__month {
+}
+
+.article__year {
+}
+
+.article__intro {
+  font-size: $font-size-article-intro;
+  color: $font-color-article-intro;
+  font-style: italic;
+}
+
+.article__section {
+  font-size: $font-size-regular;
+  color: $font-color-regular;
+}
+
+.article__section-title {
+  font-size: $font-size-article-section-title;
+  color: $font-color-section-title;
+}
+
+.article__section-content {
+}
+
+.article__image-wrapper {
+}
+
+.article__image {
+}
+
+.article__image-caption {
+  font-size: $font-size-image-capture;
+  color: $font-color-image-capture;
+}
+
+.article__image-small {
+}

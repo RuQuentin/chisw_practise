@@ -39,7 +39,8 @@ main, /* 2 */
 menu,
 nav,
 section,
-summary { /* 1 */
+summary {
+  /* 1 */
   display: block;
 }
 
@@ -149,11 +150,11 @@ dfn {
  * `article` contexts in Chrome, Firefox, and Safari.
  */
 
-h1 {
+/* h1 {
   font-size: 2em;
   margin: 0.67em 0;
 }
-
+ */
 /**
  * Add the correct background and color in IE 9-.
  */
@@ -231,9 +232,9 @@ samp {
  * Add the correct margin in IE 8.
  */
 
-figure {
+/* figure {
   margin: 1em 40px;
-}
+} */
 
 /**
  * 1. Add the correct box sizing in Firefox.
@@ -276,7 +277,8 @@ optgroup {
  */
 
 button,
-input { /* 1 */
+input {
+  /* 1 */
   overflow: visible;
 }
 
@@ -286,7 +288,8 @@ input { /* 1 */
  */
 
 button,
-select { /* 1 */
+select {
+  /* 1 */
   text-transform: none;
 }
 

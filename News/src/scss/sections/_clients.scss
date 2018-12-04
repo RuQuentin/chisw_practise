@@ -1,0 +1,18 @@
+.clients {
+}
+
+.clients__title {
+  font-size: $font-size-clients-title;
+  color: $font-color-clients-title;
+}
+
+.clients__list {
+  @extend %clear-list;
+}
+
+.clients__item {
+}
+
+.clients__link {
+  @extend %clear-link;
+}

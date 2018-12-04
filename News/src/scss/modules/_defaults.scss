@@ -1,18 +1,25 @@
-* {
-  box-sizing: border-box;
-}
-
 html {
 }
 
 body {
-  /*   font: 300 13px/1.6 'Helvetica Neue', Helvetica, Arial;
-  color: #444;
-  transition: all .4s .3s ease-in; */
+  font-family: $font-regular;
+  font-size: $font-size-regular;
+  color: $font-color-regular;
+  font-weight: 400;
+  background-color: $color-background-body;
 }
 
-body,
-html {
-  min-height: 100vh;
-  /*   overflow: hidden; */
+* {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
 }

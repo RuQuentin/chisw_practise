@@ -1,3 +1,44 @@
 .footer {
+}
 
+.footer__menu-wrapper {
+}
+
+.footer__menu {
+  @extend %clear-list;
+
+  color: $font-color-footer;
+}
+
+.footer__menu-category {
+  font-size: $font-size-footer-category;
+}
+
+.footer__menu-list {
+  @extend %clear-list;
+}
+
+.footer__menu-item {
+  font-size: $font-size-footer;
+}
+
+.footer__menu-link {
+  @extend %clear-link;
+
+  color: $font-color-footer;
+}
+
+.footer__socials-list {
+  @extend %clear-list;
+}
+
+.footer__social-item {
+}
+
+.footer__social-link {
+  @extend %clear-link;
+}
+
+.footer__copyright {
+  font-size: $font-size-footer-copyright;
 }

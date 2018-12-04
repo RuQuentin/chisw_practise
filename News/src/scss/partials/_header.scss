@@ -1,2 +1,22 @@
 .header {
 }
+
+.header__logo-link {
+  @extend %clear-link;
+
+  font-size: $font-size-logo;
+  color: $font-color-logo;
+
+  &::before {
+    content: "";
+    width: 28px;
+    height: 22px;
+    background-image: url("");
+  }
+}
+
+.header__logo-text {
+  &:nth-of-type(1) {
+    font-weight: 700;
+  }
+}

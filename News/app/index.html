@@ -12,79 +12,74 @@
     <link href="//ajax.googleapis.com" rel="dns-prefetch" />
     <link href="assets/css/style.min.css" rel="stylesheet" />
 
-    <script src="assets/components/modernizr/modernizr.js"></script>
+    <!-- <script src="assets/components/modernizr/modernizr.js"></script> -->
   </head>
 
-  <body>
+  <body class="container">
     <header class="header">
-      <div class="container">
-        <a href="" class="header__logo">
-          <span class="visually-hidden">OpenLogic</span>
-        </a>
+      <a href="" class="header__logo-link">
+        <span class="header__logo-text">open</span
+        ><span class="header__logo-text">logic</span>
+      </a>
 
-        <nav class="header__menu">
-          <ul class="header__menu-list-1st-level">
-            <li class="header__menu-item-1st-level">
-              <a href="" class="header__menu-link-1st-leve">Home</a>
-            </li>
-            <li class="header__menu-item-1st-level">
-              <a href="" class="header__menu-link-1st-leve">News</a>
-            </li>
-            <li class="header__menu-item-1st-level">
-              <a href="" class="header__menu-link-1st-leve">Gallery</a>
-            </li>
-            <li class="header__menu-item-1st-level">
-              <a href="" class="header__menu-link-1st-leve">Pages</a>
-            </li>
+      <nav class="header__menu">
+        <ul class="header__menu-list-1st-level">
+          <li class="header__menu-item-1st-level">
+            <a href="" class="header__menu-link-1st-level">Home</a>
+          </li>
+          <li class="header__menu-item-1st-level">
+            <a href="" class="header__menu-link-1st-level">News</a>
+          </li>
+          <li class="header__menu-item-1st-level">
+            <a href="" class="header__menu-link-1st-level">Gallery</a>
+          </li>
+          <li class="header__menu-item-1st-level">
+            <a href="" class="header__menu-link-1st-level">Pages</a>
+          </li>
 
-            <li class="header__menu-item-1st-level">
-              <a href="" class="header__menu-link-1st-leve">Layouts</a>
-              <ul class="header__menu-list-2nd-level">
-                <li class="header__menu-item-2nd-level">
-                  <a href="" class="header__menu-link-2nd-level">Headers</a>
-                  <ul class="header__menu-list-3rd-level">
-                    <li class="header__menu-item-3rd-level">
-                      <a href="" class="header__menu-link-3rd-level"
-                        >No header</a
-                      >
-                    </li>
-                    <li class="header__menu-item-3rd-level">
-                      <a href="" class="header__menu-link-3rd-level"
-                        >Only bread crumbs</a
-                      >
-                    </li>
-                    <li class="header__menu-item-3rd-level">
-                      <a href="" class="header__menu-link-3rd-level"
-                        >Automatic</a
-                      >
-                    </li>
-                    <li class="header__menu-item-3rd-level">
-                      <a href="" class="header__menu-link-3rd-level"
-                        >Custom Text/HTML</a
-                      >
-                    </li>
-                    <li class="header__menu-item-3rd-level">
-                      <a href="" class="header__menu-link-3rd-level"
-                        >Twitter feed</a
-                      >
-                    </li>
-                    <li class="header__menu-item-3rd-level">
-                      <a href="" class="header__menu-link-3rd-level">Slider</a>
-                    </li>
-                  </ul>
-                </li>
+          <li class="header__menu-item-1st-level">
+            <a href="" class="header__menu-link-1st-level">Layouts</a>
+            <ul class="header__menu-list-2nd-level">
+              <li class="header__menu-item-2nd-level">
+                <a href="" class="header__menu-link-2nd-level">Headers</a>
+                <ul class="header__menu-list-3rd-level">
+                  <li class="header__menu-item-3rd-level">
+                    <a href="" class="header__menu-link-3rd-level">No header</a>
+                  </li>
+                  <li class="header__menu-item-3rd-level">
+                    <a href="" class="header__menu-link-3rd-level"
+                      >Only bread crumbs</a
+                    >
+                  </li>
+                  <li class="header__menu-item-3rd-level">
+                    <a href="" class="header__menu-link-3rd-level">Automatic</a>
+                  </li>
+                  <li class="header__menu-item-3rd-level">
+                    <a href="" class="header__menu-link-3rd-level"
+                      >Custom Text/HTML</a
+                    >
+                  </li>
+                  <li class="header__menu-item-3rd-level">
+                    <a href="" class="header__menu-link-3rd-level"
+                      >Twitter feed</a
+                    >
+                  </li>
+                  <li class="header__menu-item-3rd-level">
+                    <a href="" class="header__menu-link-3rd-level">Slider</a>
+                  </li>
+                </ul>
+              </li>
 
-                <li class="header__menu-item-2nd-level">
-                  <a href="" class="header__menu-link-2nd-level">Sidebars</a>
-                </li>
-                <li class="header__menu-item-2nd-level">
-                  <a href="" class="header__menu-link-2nd-level">Columns</a>
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </nav>
-      </div>
+              <li class="header__menu-item-2nd-level">
+                <a href="" class="header__menu-link-2nd-level">Sidebars</a>
+              </li>
+              <li class="header__menu-item-2nd-level">
+                <a href="" class="header__menu-link-2nd-level">Columns</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
     </header>
 
     <main class="main">
@@ -133,7 +128,12 @@
             to par with the iPhone and have a similar plugin environment.
           </p>
 
-          <img src="" alt="Photo of People" class="article__image-large" />
+          <figure class="article__image-wrapper">
+            <img src="" alt="Photo of People" class="article__image" />
+            <figcaption class="article__image-caption">
+              Image caption from alt
+            </figcaption>
+          </figure>
 
           <img src="" alt="Photo of a Man" class="article__image-small" />
 
@@ -198,7 +198,7 @@
       </article>
 
       <nav class="news__navigation">
-        <ul class="news__navigation-control">
+        <ul class="news__navigation-list">
           <li class="news__navigation-item">
             <a href="" class="news__navigation-link">
               <span class="news__navigation-button"></span>
@@ -216,29 +216,18 @@
       </nav>
 
       <figure class="clients">
-        <h2 class="clients__title">
-          <ul class="clients__list">
-            <li class="clients__item">
-              <a href="" class="clients__link"> </a>
-            </li>
+        <h2 class="clients__title">Our clients</h2>
+        <ul class="clients__list">
+          <li class="clients__item"><a href="" class="clients__link"> </a></li>
 
-            <li class="clients__item">
-              <a href="" class="clients__link"> </a>
-            </li>
+          <li class="clients__item"><a href="" class="clients__link"> </a></li>
 
-            <li class="clients__item">
-              <a href="" class="clients__link"> </a>
-            </li>
+          <li class="clients__item"><a href="" class="clients__link"> </a></li>
 
-            <li class="clients__item">
-              <a href="" class="clients__link"> </a>
-            </li>
+          <li class="clients__item"><a href="" class="clients__link"> </a></li>
 
-            <li class="clients__item">
-              <a href="" class="clients__link"> </a>
-            </li>
-          </ul>
-        </h2>
+          <li class="clients__item"><a href="" class="clients__link"> </a></li>
+        </ul>
       </figure>
     </main>
 
@@ -454,7 +443,9 @@
                 </ul>
               </li>
 
-              <li class="footer__menu-item">Copyright (C) 2011 Company Inc.</li>
+              <li class="footer__menu-item footer__copyright">
+                Copyright (C) 2011 Company Inc.
+              </li>
             </ul>
           </li>
         </ul>
