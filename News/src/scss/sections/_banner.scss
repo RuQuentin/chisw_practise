@@ -4,7 +4,12 @@
   display: flex;
   justify-content: start;
 
-  border-top: 7px solid $color-border-banner;
+  border-top: 7px solid $color-border-picture;
+  padding-right: 32px;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .banner__image {
@@ -14,14 +19,55 @@
   height: 128px;
   background-image: url("../img/banner__image.jpg");
   background-repeat: no-repeat;
+
+  margin-right: 32px;
 }
 
 .banner__title {
   font-size: $font-size-banner-title;
   color: $font-color-banner-title;
+  line-height: $line-height-banner-title;
+  letter-spacing: $letter-spacing-banner-title;
+
+  flex-basis: 160px;
+
+  padding-bottom: 6px;
+  margin-right: 76px;
+}
+
+.banner__description__wrapper {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+
+  flex-basis: 440px;
+  height: 90px;
 }
 
 .banner__description {
   font-size: $font-size-banner;
   color: $font-color-banner;
+  line-height: $line-height-banner-description;
+}
+
+.banner__description-navigation {
+  display: block;
+  text-align: right;
+}
+
+.banner__description-navigation-button {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.banner__description-navigation-button-previous {
+  background-image: url("../img/buttons/arrow-previous.png");
+  margin-right: 10px;
+}
+
+.banner__description-navigation-button-next {
+  background-image: url("../img/buttons/arrow-next.png");
 }

@@ -7,7 +7,25 @@ body {
   color: $font-color-regular;
   font-weight: 400;
   background-color: $color-background-body;
+  background-image: linear-gradient(
+      transparentize($color-background-body, 0.05),
+      transparentize($color-background-body, 0.05)
+    ),
+    url("../img/world-map.png");
+  background-repeat: no-repeat;
+  background-position: top center;
 }
+
+/* .white {
+  background-image: url("white.png");
+  opacity: 0.8;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 1311px;
+  height: 234px;
+  z-index: 4;
+} */
 
 * {
   box-sizing: border-box;

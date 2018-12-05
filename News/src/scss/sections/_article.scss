@@ -1,7 +1,8 @@
 .article {
-  max-width: 724px;
-  padding-left: 3.5912%;
-  padding-left: 3.5912%;
+  max-width: 700px;
+
+  padding-top: 30px;
+  margin-left: 3.5912%;
 }
 
 .article__title-wrapper {
@@ -9,16 +10,22 @@
 
   display: flex;
   justify-content: space-between;
+
+  margin-bottom: 23px;
 }
 
 .article__title {
   font-size: $font-size-article-title;
   color: $font-color-article-title;
+  line-height: $line-height-article-title;
+  letter-spacing: $letter-spacing-article-title;
 
   max-width: 453px;
 }
 
 .article__date {
+  @extend %background-hatch;
+
   font-size: $font-size-article-date;
   color: $font-color-article-date;
   text-transform: uppercase;
@@ -49,6 +56,13 @@
   font-size: $font-size-article-intro;
   color: $font-color-article-intro;
   font-style: italic;
+  text-align: justify;
+  line-height: $line-height-article-intro;
+
+  padding-right: 25px;
+  padding-bottom: 26px;
+
+  margin-bottom: 26px;
 }
 
 .article__section {
@@ -56,20 +70,46 @@
 
   font-size: $font-size-regular;
   color: $font-color-regular;
+  text-align: justify;
+
+  padding-right: 25px;
+  padding-bottom: 34px;
+
+  margin-bottom: 26px;
+
+  &:last-of-type {
+    margin-bottom: 0px;
+  }
 }
 
 .article__section-title {
   font-size: $font-size-article-section-title;
   color: $font-color-section-title;
+  letter-spacing: $letter-spacing-article-section-title;
 }
 
 .article__section-content {
+  line-height: $line-height-article-section-content;
+  letter-spacing: $letter-spacing-article-section-content;
+
+  padding-top: 19px;
 }
 
 .article__image-wrapper {
+  padding-top: 39px;
+  margin-bottom: 15px;
+
+  display: flex;
+  flex-flow: column;
+  align-items: center;
 }
 
 .article__image-large {
+  height: 290px;
+
+  border-bottom: 8px solid $color-border-picture;
+
+  margin-bottom: 9px;
 }
 
 .article__image-caption {
@@ -80,7 +120,9 @@
 .article__image-small {
   float: left;
 
-  margin-top: 32px;
+  border-bottom: 8px solid $color-border-picture;
+
+  padding-top: 34px;
   margin-right: 32px;
-  margin-bottom: 32px;
+  margin-bottom: 20px;
 }

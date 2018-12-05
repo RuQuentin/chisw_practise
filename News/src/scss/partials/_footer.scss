@@ -1,7 +1,16 @@
 .footer {
+  background-image: linear-gradient(
+    to bottom,
+    $color-background-footer-dark 1%,
+    $color-background-footer-bright 3%
+  );
 }
 
 .footer__menu-wrapper {
+  padding-left: 19px;
+  padding-right: 54px;
+  padding-top: 23px;
+  padding-bottom: 26px;
 }
 
 .footer__menu {
@@ -15,6 +24,21 @@
 
 .footer__menu-category {
   font-size: $font-size-footer-category;
+
+  &:nth-of-type(1) {
+    flex-basis: 387px;
+  }
+
+  &:nth-of-type(2) {
+    flex-basis: 139px;
+  }
+}
+
+.footer__menu-category-name {
+  display: block;
+  margin-bottom: 21px;
+
+  letter-spacing: $letter-spacing-footer-menu-category-name;
 }
 
 .footer__menu-list {
@@ -33,6 +57,10 @@
 
 .footer__menu-item {
   font-size: $font-size-footer;
+
+  &:not(:last-child()) {
+    margin-bottom: 6px;
+  }
 }
 
 .footer__menu-link {
@@ -43,13 +71,48 @@
 
 .footer__socials-list {
   @extend %clear-list;
+
+  width: 114px;
+
+  display: flex;
+  justify-content: space-between;
+
+  padding-bottom: 16px;
 }
 
 .footer__social-item {
+  display: inline-block;
 }
 
 .footer__social-link {
   @extend %clear-link;
+
+  width: 24px;
+  height: 24px;
+  background-repeat: no-repeat;
+  background-image: url("../img/socials-sprite.png");
+
+  filter: grayscale(100%);
+
+  &:hover {
+    filter: none;
+  }
+}
+
+.footer__social-link_twitter {
+  background-position: 0px 0px;
+}
+
+.footer__social-link_facebook {
+  background-position: -30px 0px;
+}
+
+.footer__social-link_linkedin {
+  background-position: -60px 0px;
+}
+
+.footer__social-link_rss {
+  background-position: -90px 0px;
 }
 
 .footer__copyright {

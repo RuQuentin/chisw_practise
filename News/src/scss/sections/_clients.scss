@@ -2,11 +2,17 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  height: 94px;
+
+  padding-right: 47px;
+  padding-left: 25px;
 }
 
 .clients__title {
   font-size: $font-size-clients-title;
   color: $font-color-clients-title;
+  letter-spacing: $letter-spacing-clients-title;
 }
 
 .clients__list {
@@ -16,7 +22,9 @@
   justify-content: space-between;
   align-items: flex-end;
 
-  flex-basis: 740px;
+  flex-basis: 738px;
+
+  padding-bottom: 8px;
 }
 
 .clients__item {
@@ -25,4 +33,12 @@
 
 .clients__link {
   @extend %clear-link;
+}
+
+.clients__image {
+  filter: grayscale(70%);
+
+  &:hover {
+    filter: none;
+  }
 }

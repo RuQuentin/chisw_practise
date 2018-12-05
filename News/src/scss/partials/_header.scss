@@ -1,13 +1,17 @@
 .header {
+}
+
+.header__wrapper {
   display: flex;
   flex-wrap: none;
   justify-content: space-between;
+  align-items: center;
+
+  height: 123px;
 }
 
 .header__logo-link {
   @extend %clear-link;
-}
 
-.header__logo-link {
-  @extend %clear-link;
+  padding-bottom: 10px;
 }

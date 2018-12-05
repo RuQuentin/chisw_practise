@@ -1,10 +1,20 @@
 .sidebar {
   width: 245px;
+  border-right: 1px solid $color-lines;
+  padding-top: 42px;
 }
 
 .sidebar__title {
+  @extend %vertical-align;
+  @extend %background-hatch;
+
   font-size: $font-size-sidebar-title;
   color: $font-color-sidebar-title;
+  letter-spacing: $letter-spacing-sidebar-title;
+  border-bottom: solid 1px $color-lines;
+
+  height: 41px;
+  padding-left: 14px;
 }
 
 .sidebar__menu {
@@ -14,30 +24,26 @@
   @extend %clear-list;
 }
 
-.sidebar__menu-item {
+.sidebar__menu-item-1st-level {
+  border-bottom: 1px solid $color-lines;
+
   &:hover {
     color: $font-color-sidebar-menu-hover;
-  }
 
-  &:active {
-    color: $font-color-sidebar-menu-active;
-    background-color: $color-background-sidebar-menu-active;
+    .sidebar__menu-list-2nd-level {
+      display: block;
+    }
   }
 }
 
-.sidebar__menu-link {
+.sidebar__menu-link-1st-level {
   @extend %clear-link;
+  @extend %sidebar-menu-item;
 
-  font-size: $font-size-sidebar-menu;
-  color: $font-color-sidebar-menu;
+  padding-left: 16px;
 
   &:hover {
     color: $font-color-sidebar-menu-hover;
-  }
-
-  &:active {
-    color: $font-color-sidebar-menu-active;
-    background-color: $color-background-sidebar-menu-active;
   }
 }
 
@@ -45,32 +51,29 @@
   @extend %clear-list;
 
   background-color: $color-background-sidebar-menu-2nd;
+  display: none;
 }
 
 .sidebar__menu-item-2nd-level {
+  border-bottom: 1px solid $color-border-menu-item-2nd;
+
   &:hover {
     color: $font-color-sidebar-menu-hover;
-  }
 
-  &:active {
-    color: $font-color-sidebar-menu-active;
-    background-color: $color-background-sidebar-menu-active;
+    .sidebar__menu-list-3nd-level {
+      display: block;
+    }
   }
 }
 
 .sidebar__menu-link-2nd-level {
   @extend %clear-link;
+  @extend %sidebar-menu-item;
 
-  font-size: $font-size-sidebar-menu;
-  color: $font-color-sidebar-menu;
+  padding-left: 36px;
 
   &:hover {
     color: $font-color-sidebar-menu-hover;
-  }
-
-  &:active {
-    color: $font-color-sidebar-menu-active;
-    background-color: $color-background-sidebar-menu-active;
   }
 }
 
@@ -78,22 +81,73 @@
   @extend %clear-list;
 
   background-color: $color-background-sidebar-menu-3rd;
+  display: none;
 }
 
 .sidebar__menu-item-3nd-level {
+  border-bottom: 1px solid $color-border-menu-item-3rd;
 }
 
 .sidebar__menu-link-3nd-level {
   @extend %clear-link;
+  @extend %sidebar-menu-item;
 
-  font-size: $font-size-sidebar-menu;
-  color: $font-color-sidebar-menu;
+  position: relative;
+  padding-left: 59px;
 
   &:hover {
     color: $font-color-sidebar-menu-hover;
   }
 
-  &:active {
+  &::after {
+    @extend %background-arrow;
+
+    content: "";
+    display: block;
+    box-sizing: border-box;
+    width: 4px;
+    height: 10px;
+    clip-path: polygon(0 0, 100% 50%, 0 100%);
+
+    position: absolute;
+    top: 50%;
+    left: 38px;
+    transform: translate(0%, -50%);
+  }
+}
+
+.sidebar__menu-link_openable {
+  position: relative;
+
+  &::after {
+    @extend %background-arrow;
+
+    content: "";
+    display: block;
+    box-sizing: border-box;
+    width: 4px;
+    height: 10px;
+    clip-path: polygon(0 0, 100% 50%, 0 100%);
+
+    position: absolute;
+    top: 50%;
+    right: 14px;
+    transform: translate(0%, -50%);
+  }
+
+  &:hover,
+  :active,
+  :focus {
+    &::after {
+      transform-origin: 50% 0%;
+      transform: rotate(90deg);
+    }
+  }
+}
+
+.sidebar__menu-link_active {
+  &:active,
+  :focus {
     color: $font-color-sidebar-menu-active;
     background-color: $color-background-sidebar-menu-active;
   }

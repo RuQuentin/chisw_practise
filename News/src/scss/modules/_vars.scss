@@ -31,6 +31,30 @@ $font-size-footer-category: 15px;
 $font-size-footer: 12px;
 $font-size-footer-copyright: 11px;
 
+/* ------------------------------ */
+/* -------- LETTER SPACING ------ */
+$letter-spacing-sidebar-title: -0.07em;
+
+$letter-spacing-banner-title: -0.02em;
+
+$letter-spacing-article-title: -0.054em;
+$letter-spacing-article-section-title: -0.06em;
+$letter-spacing-article-section-content: -0.0055em;
+
+$letter-spacing-clients-title: -0.07em;
+
+$letter-spacing-footer-menu-category-name: -0.02em;
+
+/* ------------------------------ */
+/* --------- LINE HEIGHT -------- */
+$line-height-article-title: 1.2;
+
+$line-height-banner-title: 1.2;
+$line-height-banner-description: 1.5833;
+
+$line-height-article-intro: 1.4;
+$line-height-article-section-content: 1.55;
+
 /* -------------------------------- */
 /* ---------- FONT COLORS --------- */
 $font-color-logo: #262626;
@@ -70,15 +94,22 @@ $font-color-footer: #393939;
 $color-background-body: #fefefe;
 
 $color-background-main-menu: #212121;
+$color-border-main-menu-item: #232525;
 
-$color-border-banner: #212121;
+$color-border-picture: #212121;
 $color-background-banner: #ae3b44;
 
 $color-background-sidebar-title: #ae3b44;
 $color-background-sidebar-menu-2nd: #f4f7f8;
 $color-background-sidebar-menu-3rd: #eaeaea;
 $color-background-sidebar-menu-active: #ae3b44;
+$color-background-sidebar-menu-arrow: #989898;
+$color-border-menu-item-2nd: #dee1e2;
+$color-border-menu-item-3rd: #d6d6d6;
 
-$color-underline-section: #ececec;
+$color-lines: #ececec;
 
-$color-background-footer: #f8f8f8;
+$color-hatch: #e3e4e5;
+
+$color-background-footer-dark: #dcdcdc;
+$color-background-footer-bright: #f8f8f8;

@@ -9,5 +9,41 @@
 }
 
 %underline-section {
-  border-bottom: 2px solid $color-underline-section;
+  border-bottom: 1px solid $color-lines;
+}
+
+%sidebar-menu-item {
+  font-size: $font-size-sidebar-menu;
+  color: $font-color-sidebar-menu;
+  display: flex;
+  align-items: center;
+
+  height: 39px;
+}
+
+%vertical-align {
+  display: flex;
+  align-items: center;
+}
+
+%background-hatch {
+  background-image: linear-gradient(
+    to bottom right,
+    transparent 49%,
+    $color-hatch 50%,
+    transparent 51%
+  );
+  background-size: 10px 10px;
+  background-repeat: repeat;
+}
+
+%background-arrow {
+  background-image: linear-gradient(
+    to bottom right,
+    transparent 49%,
+    $color-background-sidebar-menu-arrow 50%,
+    transparent 51%
+  );
+  background-size: 2px 2px;
+  background-repeat: repeat;
 }

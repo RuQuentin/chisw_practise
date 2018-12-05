@@ -4,8 +4,11 @@
 .article__navigation-list {
   @extend %clear-list;
 
+  height: 70px;
+
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .article__navigation-item {
