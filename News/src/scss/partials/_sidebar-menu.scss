@@ -13,7 +13,7 @@
   letter-spacing: $letter-spacing-sidebar-title;
   border-bottom: solid 1px $color-lines;
 
-  height: 41px;
+  height: 42px;
   padding-left: 14px;
 }
 
@@ -146,9 +146,26 @@
 }
 
 .sidebar__menu-link_active {
+  position: relative;
+
   &:active,
   :focus {
     color: $font-color-sidebar-menu-active;
     background-color: $color-background-sidebar-menu-active;
+
+    &::after {
+      content: "";
+      display: block;
+      box-sizing: border-box;
+      width: 4px;
+      height: 10px;
+      background-color: $color-background-sidebar-menu-active;
+      clip-path: polygon(0 0, 100% 50%, 0 100%);
+
+      position: absolute;
+      top: 50%;
+      left: 100%;
+      transform: translate(0%, -50%);
+    }
   }
 }
