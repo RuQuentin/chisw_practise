@@ -1,0 +1,5 @@
+$numberOfItems: 5;
+$period: 5;
+
+$periodInSec: convertToPeriod($period);
+$delayInSec: calculateDelay($period, $numberOfItems);

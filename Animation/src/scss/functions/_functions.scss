@@ -1,0 +1,9 @@
+@function convertToPeriod($period) {
+  $time: $period + "s";
+  @return $time;
+}
+
+@function calculateDelay($period, $number) {
+  $time: $period / $number + "s";
+  @return $time;
+}

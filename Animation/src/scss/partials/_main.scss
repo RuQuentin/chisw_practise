@@ -1,250 +1,85 @@
-.cards-set {
+.cards__set {
   position: relative;
-
   height: 400px;
 
-  &:hover .cards-set__item {
+  &:hover .cards__item {
     animation-play-state: paused;
   }
 }
 
-.cards-set__item {
+.cards__item {
   @extend %clear-list;
 
-  width: 75px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
   height: 150px;
-
+  background-color: wheat;
+  border-radius: 10px;
   position: absolute;
   bottom: 50px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  animation: item-rotation 7s linear 0s infinite normal none running;
 
-  background-color: grey;
+  &:before {
+    content: "";
+    display: block;
+    width: 15px;
+    height: 15px;
+    background-color: red;
+
+    position: absolute;
+    top: 15px;
+    left: 10px;
+
+    transform: scaleX(0.6) rotate(45deg);
+  }
+
+  &:after {
+    content: "";
+    display: block;
+    width: 15px;
+    height: 15px;
+    background-color: red;
+
+    position: absolute;
+    bottom: 15px;
+    right: 10px;
+
+    transform: scaleX(0.6) rotate(45deg);
+  }
 
   &:nth-of-type(1) {
-    background-color: red;
-    animation: list-item-rotation 5s linear 0s infinite normal none running;
+    animation-delay: 0s;
   }
 
   &:nth-of-type(2) {
-    background-color: palevioletred;
-    animation: list-item-rotation 5s linear -2s infinite normal none running;
+    animation-delay: -1s;
   }
 
   &:nth-of-type(3) {
-    background-color: palevioletred;
-    animation: list-item-rotation 5s linear -3s infinite normal none running;
+    animation-delay: -2s;
   }
 
   &:nth-of-type(4) {
-    background-color: palevioletred;
-    animation: list-item-rotation 5s linear -4s infinite normal none running;
+    animation-delay: -3s;
   }
 
-  /*
-
-  &:nth-of-type(3) {
-    justify-self: center;
-    background-color: goldenrod;
+  &:nth-of-type(5) {
+    animation-delay: -4s;
   }
 
-  &:nth-of-type(4) {
-    justify-self: end;
-    background-color: palegreen;
-  } */
-}
-
-@keyframes list-item-rotation {
-  0% {
-    left: 0;
-    z-index: 1;
+  &:nth-of-type(6) {
+    animation-delay: -5s;
   }
 
-  40% {
-    width: 150px;
-    height: 300px;
-
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 10;
-  }
-
-  80% {
-    width: 75px;
-    height: 150px;
-
-    left: 100%;
-    transform: translateX(-100%);
-  }
-
-  90% {
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: -10;
-  }
-
-  100% {
-    left: 0;
-    z-index: 1;
+  &:nth-of-type(7) {
+    animation-delay: -6s;
   }
 }
 
-// @keyframes list-item-rotation-2 {
-//   0% {
-//     left: 0;
-//     z-index: 1;
-//   }
-
-//   40% {
-//     position: absolute;
-//     left: 50%;
-//     transform: translateX(-50%) scale(1.1);
-//     z-index: 10;
-//   }
-
-//   80% {
-//     left: 100%;
-//     transform: translateX(-100%) scale(1);
-//   }
-
-//   90% {
-//     left: 50%;
-//     transform: translateX(-50%) scale(0.9);
-//     z-index: -10;
-//   }
-
-//   100% {
-//     left: 0;
-//     transform: scale(1);
-//     z-index: 1;
-//   }
-// }
-
-// @keyframes list-item-rotation {
-//   0% {
-//     left: 0;
-//     z-index: 1;
-//   }
-
-//   40% {
-//     transform: scale(1.1);
-//     z-index: 10;
-//   }
-
-//   80% {
-//     left: 100%;
-//     transform: translateX(-100%) scale(1);
-//   }
-
-//   90% {
-//     left: 50%;
-//     transform: translateX(-50%) scale(0.9);
-//     z-index: -10;
-//   }
-
-//   100% {
-//     left: 0;
-//     transform: scale(1);
-//     z-index: 1;
-//   }
-// }
-
-// @keyframes list-item-rotation-first {
-//   0% {
-//     left: 0;
-//     z-index: 1;
-//   }
-
-//   40% {
-//     transform: scale(1.1);
-//     z-index: 10;
-//   }
-
-//   80% {
-//     left: 100%;
-//     transform: translateX(-100%) scale(1);
-//   }
-
-//   90% {
-//     left: 50%;
-//     transform: translateX(-50%) scale(0.9);
-//     z-index: -10;
-//   }
-
-//   100% {
-//     left: 0;
-//     transform: scale(1);
-//     z-index: 1;
-//   }
-// }
-
-// --------------------------------------------
-
-// .cards-set {
-//   position: relative;
-
-//   width: 100%;
-//   height: 400px;
-// }
-
-// .cards-set__item {
-//   @extend %clear-list;
-
-//   position: absolute;
-//   bottom: 0px;
-
-//   width: 150px;
-//   height: 300px;
-
-//   background-color: grey;
-
-//   &:nth-of-type(1) {
-//     background-color: red;
-//     animation-name: list-item-rotation;
-//     animation-duration: 5s;
-//     animation-iteration-count: infinite;
-//   }
-
-//   &:nth-of-type(2) {
-//     left: 50%;
-//     background-color: palevioletred;
-//   }
-
-//   // &:nth-of-type(3) {
-//   //   justify-self: center;
-//   //   background-color: goldenrod;
-//   // }
-
-//   // &:nth-of-type(4) {
-//   //   justify-self: end;
-//   //   background-color: palegreen;
-//   // }
-// }
-
-// @keyframes list-item-rotation {
-//   0% {
-//     left: 0;
-//     z-index: 1;
-//   }
-
-//   25% {
-//     left: 50%;
-//     transform: translateX(-50%) scale(1.1);
-//     z-index: 10;
-//   }
-
-//   50% {
-//     left: 100%;
-//     transform: translateX(-100%) scale(1);
-//   }
-
-//   75% {
-//     left: 50%;
-//     transform: translateX(-50%) scale(0.9);
-//     z-index: -10;
-//   }
-
-//   100% {
-//     left: 0;
-//     transform: scale(1);
-//     z-index: 1;
-//   }
-// }
+.cards__text {
+  font-size: 50px;
+  font-weight: 700;
+}

@@ -1,2 +1,63 @@
-@mixin list-item-rotation() {
+@keyframes item-rotation {
+  0% {
+    left: 0;
+    z-index: 1;
+  }
+
+  40% {
+    left: 50%;
+    transform: translate(-50%, -25%) scale(1.5);
+    z-index: 10;
+  }
+
+  80% {
+    left: 100%;
+    transform: translateX(-100%) scale(1);
+  }
+
+  90% {
+    z-index: -10;
+  }
+
+  100% {
+    left: 0;
+    z-index: 1;
+  }
 }
+
+/* @mixin item-rotation {
+
+} */
+
+// @mixin item-rotation($periodInSec, $delayInSec) {
+//   animation: list-item-rotation $periodInSec linear $delayInSec infinite normal
+//     none running;
+
+//   @keyframes list-item-rotation {
+//     0% {
+//       left: 0;
+//       z-index: 1;
+//     }
+
+//     40% {
+//       width: 150px;
+//       height: 300px;
+//     }
+
+//     80% {
+//       width: 75px;
+//       height: 150px;
+//       left: 100%;
+//       transform: translateX(-100%);
+//     }
+
+//     90% {
+//       z-index: -10;
+//     }
+
+//     100% {
+//       left: 0;
+//       z-index: 1;
+//     }
+//   }
+// }
