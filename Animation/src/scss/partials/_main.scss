@@ -1,0 +1,250 @@
+.cards-set {
+  position: relative;
+
+  height: 400px;
+
+  &:hover .cards-set__item {
+    animation-play-state: paused;
+  }
+}
+
+.cards-set__item {
+  @extend %clear-list;
+
+  width: 75px;
+  height: 150px;
+
+  position: absolute;
+  bottom: 50px;
+
+  background-color: grey;
+
+  &:nth-of-type(1) {
+    background-color: red;
+    animation: list-item-rotation 5s linear 0s infinite normal none running;
+  }
+
+  &:nth-of-type(2) {
+    background-color: palevioletred;
+    animation: list-item-rotation 5s linear -2s infinite normal none running;
+  }
+
+  &:nth-of-type(3) {
+    background-color: palevioletred;
+    animation: list-item-rotation 5s linear -3s infinite normal none running;
+  }
+
+  &:nth-of-type(4) {
+    background-color: palevioletred;
+    animation: list-item-rotation 5s linear -4s infinite normal none running;
+  }
+
+  /*
+
+  &:nth-of-type(3) {
+    justify-self: center;
+    background-color: goldenrod;
+  }
+
+  &:nth-of-type(4) {
+    justify-self: end;
+    background-color: palegreen;
+  } */
+}
+
+@keyframes list-item-rotation {
+  0% {
+    left: 0;
+    z-index: 1;
+  }
+
+  40% {
+    width: 150px;
+    height: 300px;
+
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+  }
+
+  80% {
+    width: 75px;
+    height: 150px;
+
+    left: 100%;
+    transform: translateX(-100%);
+  }
+
+  90% {
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: -10;
+  }
+
+  100% {
+    left: 0;
+    z-index: 1;
+  }
+}
+
+// @keyframes list-item-rotation-2 {
+//   0% {
+//     left: 0;
+//     z-index: 1;
+//   }
+
+//   40% {
+//     position: absolute;
+//     left: 50%;
+//     transform: translateX(-50%) scale(1.1);
+//     z-index: 10;
+//   }
+
+//   80% {
+//     left: 100%;
+//     transform: translateX(-100%) scale(1);
+//   }
+
+//   90% {
+//     left: 50%;
+//     transform: translateX(-50%) scale(0.9);
+//     z-index: -10;
+//   }
+
+//   100% {
+//     left: 0;
+//     transform: scale(1);
+//     z-index: 1;
+//   }
+// }
+
+// @keyframes list-item-rotation {
+//   0% {
+//     left: 0;
+//     z-index: 1;
+//   }
+
+//   40% {
+//     transform: scale(1.1);
+//     z-index: 10;
+//   }
+
+//   80% {
+//     left: 100%;
+//     transform: translateX(-100%) scale(1);
+//   }
+
+//   90% {
+//     left: 50%;
+//     transform: translateX(-50%) scale(0.9);
+//     z-index: -10;
+//   }
+
+//   100% {
+//     left: 0;
+//     transform: scale(1);
+//     z-index: 1;
+//   }
+// }
+
+// @keyframes list-item-rotation-first {
+//   0% {
+//     left: 0;
+//     z-index: 1;
+//   }
+
+//   40% {
+//     transform: scale(1.1);
+//     z-index: 10;
+//   }
+
+//   80% {
+//     left: 100%;
+//     transform: translateX(-100%) scale(1);
+//   }
+
+//   90% {
+//     left: 50%;
+//     transform: translateX(-50%) scale(0.9);
+//     z-index: -10;
+//   }
+
+//   100% {
+//     left: 0;
+//     transform: scale(1);
+//     z-index: 1;
+//   }
+// }
+
+// --------------------------------------------
+
+// .cards-set {
+//   position: relative;
+
+//   width: 100%;
+//   height: 400px;
+// }
+
+// .cards-set__item {
+//   @extend %clear-list;
+
+//   position: absolute;
+//   bottom: 0px;
+
+//   width: 150px;
+//   height: 300px;
+
+//   background-color: grey;
+
+//   &:nth-of-type(1) {
+//     background-color: red;
+//     animation-name: list-item-rotation;
+//     animation-duration: 5s;
+//     animation-iteration-count: infinite;
+//   }
+
+//   &:nth-of-type(2) {
+//     left: 50%;
+//     background-color: palevioletred;
+//   }
+
+//   // &:nth-of-type(3) {
+//   //   justify-self: center;
+//   //   background-color: goldenrod;
+//   // }
+
+//   // &:nth-of-type(4) {
+//   //   justify-self: end;
+//   //   background-color: palegreen;
+//   // }
+// }
+
+// @keyframes list-item-rotation {
+//   0% {
+//     left: 0;
+//     z-index: 1;
+//   }
+
+//   25% {
+//     left: 50%;
+//     transform: translateX(-50%) scale(1.1);
+//     z-index: 10;
+//   }
+
+//   50% {
+//     left: 100%;
+//     transform: translateX(-100%) scale(1);
+//   }
+
+//   75% {
+//     left: 50%;
+//     transform: translateX(-50%) scale(0.9);
+//     z-index: -10;
+//   }
+
+//   100% {
+//     left: 0;
+//     transform: scale(1);
+//     z-index: 1;
+//   }
+// }
