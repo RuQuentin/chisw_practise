@@ -65,10 +65,20 @@
     z-index: 1;
   }
 
+  32% {
+    left: 40%;
+    transform: translate(-40%, -25%) scale(1.5);
+  }
+
   40% {
     left: 50%;
     transform: translate(-50%, -25%) scale(1.5);
     z-index: 10;
+  }
+
+  48% {
+    left: 60%;
+    transform: translate(-50%, -25%) scale(1.5);
   }
 
   80% {
