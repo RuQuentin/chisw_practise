@@ -2,13 +2,20 @@
   background-color: $color-middle-purple;
   color: $color-regular-white;
   text-align: center;
+
   /* min-height: 100vh; */
+}
+
+.banner__content-wrapper {
+  /*   padding-top: 45%; */
+  padding-bottom: 13.3%;
+  padding-top: 12.3%;
 }
 
 .banner__title {
   font-family: $font-bold;
   font-size: $font-size-banner-title * 0.6;
   line-height: $line-height-banner-title;
-  padding-top: 45%;
+
   margin-bottom: 57px;
 }

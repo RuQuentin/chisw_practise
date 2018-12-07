@@ -2,13 +2,17 @@
   text-align: center;
 }
 
+.section__content-wrapper {
+  padding-top: 9.8%;
+  padding-bottom: 11.5%;
+}
+
 .section__title {
   font-family: $font-bold;
   font-size: $font-size-section-title * 0.8;
   letter-spacing: 4px;
   line-height: $line-height-regular;
   text-transform: uppercase;
-  padding-top: 9.8%;
   margin-bottom: 17px;
 
   &::after {

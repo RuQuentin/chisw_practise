@@ -5,7 +5,7 @@
 .footer-socials__list {
   max-width: 940px;
   font-family: $font-semibold;
-  font-size: $font-size-section-item-name * 0.8;
+  font-size: $font-size-section-item-name * 0.6;
   color: $color-regular-white;
   text-align: center;
   padding-top: 3.4%;
@@ -17,7 +17,8 @@
 
 .footer-socials__item {
   @extend %clear-list;
-  display: block;
+  display: inline-block;
+  width: 30%;
 }
 
 .footer-socials__link {

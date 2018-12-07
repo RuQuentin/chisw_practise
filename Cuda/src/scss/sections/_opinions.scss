@@ -10,13 +10,12 @@
 }
 
 .opinions__list {
-  padding-bottom: 11.6%;
 }
 
 .opinions__item {
   @extend %double-item;
 
-  max-width: 400px;
+  /*   max-width: 400px; */
   text-align: left;
 }
 

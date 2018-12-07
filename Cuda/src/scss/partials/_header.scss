@@ -1,4 +1,26 @@
 .header {
-  position: absolute;
   width: 100%;
+  background-color: $color-middle-purple;
+}
+
+.header__wrapper {
+  position: relative;
+  padding-top: 5.0909%;
+  padding-left: 3.7%;
+  padding-right: 3.7%;
+}
+
+.main-logo {
+  @extend %clear-link;
+
+  float: left;
+
+  color: $color-regular-white;
+
+  width: 120px;
+  height: 38px;
+
+  background-image: url("../img/logo.png");
+  background-repeat: no-repeat;
+  background-size: cover;
 }

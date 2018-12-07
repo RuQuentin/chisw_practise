@@ -2,6 +2,10 @@
 }
 
 @media only screen and (min-width: 480px) {
+  .button {
+    font-size: $font-size-button;
+  }
+
   .portfolio__filter-list {
     width: auto;
   }
@@ -18,48 +22,19 @@
 
 @media only screen and (min-width: 580px) {
   %single-item {
+    display: inline-block;
+    width: 260px;
+
     &:nth-last-of-type(-n + 2) {
       margin-bottom: 0;
     }
 
     &:nth-of-type(2n-1) {
-      margin-right: 20px;
+      margin-right: 2%;
     }
   }
 
-  .navigation__wrapper {
-    position: relative;
-  }
-
-  .navigation {
-    position: absolute;
-    right: 8px;
-    bottom: 0px;
-    width: initial;
-  }
-
-  .main-menu__icon {
-    display: none;
-  }
-
-  .main-menu {
-    display: initial;
-    position: static;
-  }
-
-  .main-menu__item {
-    float: left;
-  }
-
-  .main-menu__link {
-    padding-left: 16px;
-    padding-right: 16px;
-
-    border-radius: 4px;
-  }
-
   .banner__title {
-    padding-top: 20.8%;
     font-size: $font-size-banner-title * 0.7;
   }
 
@@ -87,7 +62,7 @@
   }
 
   .footer-socials__item {
-    display: inline-block;
+    width: auto;
 
     &:not(:nth-last-of-type(1)) {
       margin-right: 5%;
@@ -96,6 +71,15 @@
 }
 
 @media only screen and (min-width: 768px) {
+  %single-item {
+    display: inline-block;
+    width: 35%;
+
+    &:nth-of-type(2n-1) {
+      margin-right: 15%;
+    }
+  }
+
   %double-item {
     width: 49%;
 
@@ -116,10 +100,37 @@
     }
   }
 
+  .navigation {
+    /*     position: absolute;
+    right: 8px;
+    bottom: 0px; */
+    width: initial;
+  }
+
+  .banner__content-wrapper {
+    /*     padding-top: 20.8%; */
+  }
+
+  .main-menu__icon {
+    display: none;
+  }
+
+  .main-menu {
+    display: initial;
+    position: static;
+  }
+
   .main-menu__item {
+    display: inline-block;
     &:not(:nth-last-of-type(1)) {
       margin-right: 13px;
     }
+  }
+
+  .main-menu__link {
+    padding-left: 16px;
+    padding-right: 16px;
+    border-radius: 4px;
   }
 
   .container {
@@ -157,12 +168,14 @@
 
 @media only screen and (min-width: 1140px) {
   %single-item {
+    width: 23.6364%;
+
     &:nth-of-type(n) {
       margin-bottom: 0;
     }
 
     &:not(:last-of-type) {
-      margin-right: 20px;
+      margin-right: 1.8182%;
     }
   }
 
