@@ -7,10 +7,7 @@
 }
 
 .footer__menu-wrapper {
-  padding-left: 19px;
-  padding-right: 54px;
-  padding-top: 23px;
-  padding-bottom: 26px;
+  padding: 24px 19px;
 }
 
 .footer__menu {
@@ -31,6 +28,10 @@
 
   &:nth-of-type(2) {
     flex-basis: 139px;
+  }
+
+  &:nth-of-type(3) {
+    flex-basis: 198px;
   }
 }
 
@@ -71,17 +72,12 @@
 
 .footer__socials-list {
   @extend %clear-list;
-
-  width: 114px;
-
-  display: flex;
-  justify-content: space-between;
-
   padding-bottom: 16px;
 }
 
 .footer__social-item {
   display: inline-block;
+  margin-right: 2px;
 }
 
 .footer__social-link {

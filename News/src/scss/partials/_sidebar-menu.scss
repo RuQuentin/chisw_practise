@@ -2,6 +2,8 @@
   width: 245px;
   border-right: 1px solid $color-lines;
   padding-top: 42px;
+
+  margin-right: 3.5912%;
 }
 
 .sidebar__title {
@@ -20,84 +22,62 @@
 .sidebar__menu {
 }
 
-.sidebar__menu-list-1st-level {
+.sidebar__menu-list {
   @extend %clear-list;
 }
 
-.sidebar__menu-item-1st-level {
-  border-bottom: 1px solid $color-lines;
-
+.sidebar__menu-item {
   &:hover {
     color: $font-color-sidebar-menu-hover;
 
-    .sidebar__menu-list-2nd-level {
+    > .sidebar__menu-list {
       display: block;
     }
   }
 }
 
-.sidebar__menu-link-1st-level {
+.sidebar__menu-item-1st-level {
+  border-bottom: 1px solid $color-lines;
+}
+
+.sidebar__menu-link {
   @extend %clear-link;
   @extend %sidebar-menu-item;
-
-  padding-left: 16px;
 
   &:hover {
     color: $font-color-sidebar-menu-hover;
   }
 }
 
-.sidebar__menu-list-2nd-level {
-  @extend %clear-list;
+.sidebar__menu-link-1st-level {
+  padding-left: 16px;
+}
 
+.sidebar__menu-list-2nd-level {
   background-color: $color-background-sidebar-menu-2nd;
   display: none;
 }
 
 .sidebar__menu-item-2nd-level {
   border-bottom: 1px solid $color-border-menu-item-2nd;
-
-  &:hover {
-    color: $font-color-sidebar-menu-hover;
-
-    .sidebar__menu-list-3nd-level {
-      display: block;
-    }
-  }
 }
 
 .sidebar__menu-link-2nd-level {
-  @extend %clear-link;
-  @extend %sidebar-menu-item;
-
   padding-left: 36px;
-
-  &:hover {
-    color: $font-color-sidebar-menu-hover;
-  }
 }
 
-.sidebar__menu-list-3nd-level {
-  @extend %clear-list;
-
+.sidebar__menu-list-3rd-level {
   background-color: $color-background-sidebar-menu-3rd;
   display: none;
 }
 
-.sidebar__menu-item-3nd-level {
+.sidebar__menu-item-3rd-level {
   border-bottom: 1px solid $color-border-menu-item-3rd;
 }
 
-.sidebar__menu-link-3nd-level {
-  @extend %clear-link;
-  @extend %sidebar-menu-item;
-
+.sidebar__menu-link-3rd-level {
   position: relative;
   padding-left: 59px;
-
-  &:hover {
-    color: $font-color-sidebar-menu-hover;
-  }
 
   &::after {
     @extend %background-arrow;

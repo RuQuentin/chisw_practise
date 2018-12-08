@@ -1,14 +1,12 @@
 .article__navigation {
-}
-
-.article__navigation-list {
-  @extend %clear-list;
-
-  height: 70px;
+  height: 66px;
 
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.article__navigation-list {
 }
 
 .article__navigation-item {
