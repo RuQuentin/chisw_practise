@@ -19,6 +19,8 @@ const outlinerFormHTML = `
   width: 187px;
   height: 20px;
   font-size: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
 .outliner__button {
@@ -102,11 +104,11 @@ function handleClick(event) {
 function changeElement(newElement) {
   removeOutline();
   currentElement = newElement;
-  addOutline(currentElement);
+  addOutline();
 }
 
-function addOutline(element) {
-  element.classList.add("outlined-element");
+function addOutline() {
+  currentElement.classList.add("outlined-element");
 }
 
 function removeOutline() {
@@ -135,23 +137,27 @@ function changeElementByKey() {
 // ==================
 
 function findPrevious() {
-  changeElement(currentElement.previousElementSibling);
+  const newElement = currentElement.previousElementSibling;
+  changeElement(newElement);
 }
 
 // ==================
 
 function findNext() {
-  changeElement(currentElement.nextElementSibling);
+  const newElement = currentElement.nextElementSibling;
+  changeElement(newElement);
 }
 
 // ==================
 
 function findParent() {
-  changeElement(currentElement.parentNode);
+  const newElement = currentElement.parentNode;
+  changeElement(newElement);
 }
 
 // ==================
 
 function findChildren() {
-  changeElement(currentElement.firstElementChild);
+  const newElement = currentElement.firstElementChild;
+  changeElement(newElement);
 }
