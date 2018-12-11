@@ -97,24 +97,12 @@ function handleClick(event) {
   }
 }
 
-// ==================
+// ============== COMMON FUNCTIONS ================
 
-function findByName() {
-  outlinerForm.addEventListener("click", returnSearchKey);
+function changeElement(newElement) {
   removeOutline();
-  currentElement = returnElementByKey();
+  currentElement = newElement;
   addOutline(currentElement);
-  console.log(currentElement);
-}
-
-function returnSearchKey() {
-  const inputField = outlinerForm.querySelector(".outliner__element-name");
-  return inputField.value;
-}
-
-function returnElementByKey() {
-  const key = returnSearchKey();
-  return document.querySelector(key);
 }
 
 function addOutline(element) {
@@ -128,54 +116,42 @@ function removeOutline() {
 
 // ==================
 
-function findPrevious() {
-  removeOutline();
-  currentElement = returnPreviousElement();
-  addOutline(currentElement);
-  console.log(currentElement);
+function findByName() {
+  outlinerForm.addEventListener("click", returnSearchKey);
+  const newElement = changeElementByKey();
+  changeElement(newElement);
 }
 
-function returnPreviousElement() {
-  return currentElement.previousElementSibling;
+function returnSearchKey() {
+  const inputField = outlinerForm.querySelector(".outliner__element-name");
+  return inputField.value;
+}
+
+function changeElementByKey() {
+  const key = returnSearchKey();
+  return document.querySelector(key);
+}
+
+// ==================
+
+function findPrevious() {
+  changeElement(currentElement.previousElementSibling);
 }
 
 // ==================
 
 function findNext() {
-  removeOutline();
-  currentElement = returnNextElement();
-  addOutline(currentElement);
-  console.log(currentElement);
-}
-
-function returnNextElement() {
-  return currentElement.nextElementSibling;
+  changeElement(currentElement.nextElementSibling);
 }
 
 // ==================
 
 function findParent() {
-  removeOutline();
-  currentElement = returnParentElement();
-  addOutline(currentElement);
-  console.log(currentElement);
-}
-
-function returnParentElement() {
-  return currentElement.parentNode;
+  changeElement(currentElement.parentNode);
 }
 
 // ==================
 
 function findChildren() {
-  removeOutline();
-  currentElement = returnChildrenElement();
-  addOutline(currentElement);
-  console.log(currentElement);
+  changeElement(currentElement.firstElementChild);
 }
-
-function returnChildrenElement() {
-  return currentElement.firstElementChild;
-}
-
-/* switch () */
