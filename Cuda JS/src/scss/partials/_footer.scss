@@ -1,0 +1,33 @@
+.footer {
+  background-color: $color-dark-blue;
+}
+
+.footer-socials__list {
+  max-width: 940px;
+  font-family: $font-semibold;
+  font-size: $font-size-section-item-name * 0.6;
+  color: $color-regular-white;
+  text-align: center;
+  padding-top: 3.4%;
+  padding-bottom: 3.4%;
+
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.footer-socials__item {
+  @extend %clear-list;
+  display: inline-block;
+  width: 30%;
+}
+
+.footer-socials__link {
+  @extend %clear-link;
+
+  color: $color-regular-white;
+
+  &:focus,
+  &:hover {
+    color: $color-lightest-blue;
+  }
+}

@@ -1,0 +1,42 @@
+.button {
+  width: 60%;
+  max-width: 294px;
+  height: 66px;
+
+  text-transform: uppercase;
+  font-family: $font-semibold;
+  font-size: $font-size-button * 0.8;
+  color: $color-regular-white;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    transform: scale(1.02, 1.02);
+  }
+}
+
+.banner__button {
+  background-image: linear-gradient(
+    to bottom,
+    $color-middle-orange 95%,
+    $color-dark-orange 95%
+  );
+}
+
+.portfolio__button {
+  background-image: linear-gradient(
+    to bottom,
+    $color-light-green 95%,
+    $color-dark-green 95%
+  );
+}
+
+.contact-form__button {
+  background-image: linear-gradient(
+    to bottom,
+    $color-lightest-blue 95%,
+    $color-light-blue 95%
+  );
+}

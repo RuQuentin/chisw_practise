@@ -1,0 +1,38 @@
+.skills {
+  @include underline($color-middle-pale);
+}
+
+.skills__list {
+  font-size: 0;
+  width: 100%;
+  max-width: 260px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.skills__item {
+  @extend %single-item;
+}
+
+.skills__name {
+  font-family: $font-bold;
+  font-size: $font-size-section-item-name;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+}
+
+.skills__item-web-design {
+  @include diagram($color-lightest-blue, 148.5deg);
+}
+
+.skills__item-html-css {
+  @include diagram($color-middle-pink, 90deg);
+}
+
+.skills__item-graphic-design {
+  @include diagram($color-middle-green, 75.5deg);
+}
+
+.skills__item-ui-ux {
+  @include diagram($color-middle-orange, 130.25deg);
+}

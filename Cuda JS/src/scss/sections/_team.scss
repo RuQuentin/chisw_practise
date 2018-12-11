@@ -1,0 +1,100 @@
+.team {
+  @include underline($color-dark-pale);
+
+  background-color: $color-light-pale;
+
+  .section__subtitle {
+    max-width: 660px;
+  }
+}
+
+.team__list {
+  font-size: 0;
+  width: 100%;
+  /*   max-width: 260px; */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.team__item {
+  @extend %single-item;
+
+  &::before {
+    content: "";
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: $color-light-grey;
+    margin-bottom: 33px;
+  }
+}
+
+.team__name {
+  font-family: $font-bold;
+  font-size: $font-size-section-item-name;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  margin: auto;
+}
+
+.team__position {
+  font-size: $font-size-regular;
+  color: $color-lightest-blue;
+  letter-spacing: 0.4px;
+  margin-bottom: 18px;
+}
+
+.team__description {
+  font-family: $font-light;
+  font-size: $font-size-regular;
+  line-height: $line-height-section-regular-small;
+  margin-bottom: 29px;
+}
+
+.socials__item {
+  @extend %clear-list;
+
+  &:not(:nth-last-of-type(1)) {
+    margin-right: 12px;
+  }
+}
+
+.socials__link {
+  display: block;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: $color-dark-pale;
+  background-repeat: no-repeat;
+
+  &:focus,
+  &:hover,
+  &:active {
+    background-color: $color-lightest-blue;
+  }
+}
+
+.socials__facebook {
+  background-image: url("../img/svg/socials.svg");
+  background-size: 88px 40px;
+  background-position: 12px 7px;
+}
+
+.socials__twitter {
+  background-image: url("../img/svg/socials.svg");
+  background-size: 88px 40px;
+  background-position: 8px -16px;
+}
+
+.socials__linkedin {
+  background-image: url("../img/svg/socials.svg");
+  background-size: 88px 40px;
+  background-position: -15px 7px;
+}
+
+.socials__email {
+  background-image: url("../img/svg/socials.svg");
+  background-size: 77px 35px;
+  background-position: -35px 9px;
+}

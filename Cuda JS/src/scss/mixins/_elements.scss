@@ -1,0 +1,73 @@
+@mixin underline($color) {
+  .section__title {
+    &::after {
+      background-color: $color;
+    }
+  }
+}
+
+@mixin diagram($color, $angle) {
+  .skills__diagram-wrapper {
+    position: relative;
+    width: 162px;
+    height: 162px;
+    margin: auto;
+    margin-bottom: 26px;
+  }
+
+  .skills__diagram-background {
+    position: absolute;
+    display: block;
+    width: 162px;
+    height: 162px;
+    border-radius: 50%;
+    background-color: $color-middle-pale;
+  }
+
+  .skills__diagram-main-section {
+    position: absolute;
+    right: 0px;
+    display: block;
+    width: 81px;
+    height: 162px;
+    border-top-right-radius: 81px;
+    border-bottom-right-radius: 81px;
+    background-color: $color;
+  }
+
+  .skills__diagram-additional-section {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    display: block;
+    width: 81px;
+    height: 162px;
+    border-top-right-radius: 81px;
+    border-bottom-right-radius: 81px;
+    background-color: $color;
+    transform: rotate($angle);
+    transform-origin: center left;
+  }
+
+  .skills__diagram-hole {
+    position: absolute;
+    display: block;
+    left: 50%;
+    top: 50%;
+    width: 134px;
+    height: 134px;
+    border-radius: 50%;
+    background-color: $color-regular-white;
+    transform: translate(-50%, -50%);
+  }
+
+  .skills__value {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    font-family: $font-light;
+    font-size: $font-size-diagram;
+  }
+}
