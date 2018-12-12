@@ -79,23 +79,23 @@ function handleClick(event) {
   const target = event.target;
   switch (target.id) {
     case "btn-search":
-      findByName();
+      changeElement(findByName);
       break;
 
     case "btn-previous":
-      findPrevious();
+      changeElement(findPrevious);
       break;
 
     case "btn-next":
-      findNext();
+      changeElement(findNext);
       break;
 
     case "btn-parent":
-      findParent();
+      changeElement(findParent);
       break;
 
     case "btn-children":
-      findChildren();
+      changeElement(findChildren);
   }
 }
 
@@ -103,8 +103,10 @@ function handleClick(event) {
 
 function changeElement(newElement) {
   removeOutline();
-  currentElement = newElement;
+  currentElement = newElement();
   addOutline();
+  manageButtons();
+  console.log(currentElement);
 }
 
 function addOutline() {
@@ -116,12 +118,29 @@ function removeOutline() {
   if (element) element.classList.remove("outlined-element");
 }
 
+function manageButtons() {
+  manageButton(findPrevious, "btn-previous");
+  manageButton(findNext, "btn-next");
+  manageButton(findParent, "btn-parent");
+  manageButton(findChildren, "btn-children");
+}
+
+function manageButton(direction, buttonId) {
+  const button = document.getElementById(buttonId);
+  const neighbourElement = direction();
+  if (neighbourElement) {
+    button.disabled = false;
+  } else {
+    button.disabled = true;
+  }
+}
+
 // ==================
 
 function findByName() {
   outlinerForm.addEventListener("click", returnSearchKey);
   const newElement = changeElementByKey();
-  changeElement(newElement);
+  return newElement;
 }
 
 function returnSearchKey() {
@@ -138,26 +157,20 @@ function changeElementByKey() {
 
 function findPrevious() {
   const newElement = currentElement.previousElementSibling;
-  changeElement(newElement);
+  return newElement;
 }
-
-// ==================
 
 function findNext() {
   const newElement = currentElement.nextElementSibling;
-  changeElement(newElement);
+  return newElement;
 }
-
-// ==================
 
 function findParent() {
   const newElement = currentElement.parentNode;
-  changeElement(newElement);
+  return newElement;
 }
-
-// ==================
 
 function findChildren() {
   const newElement = currentElement.firstElementChild;
-  changeElement(newElement);
+  return newElement;
 }
