@@ -107,9 +107,9 @@ function handleClick() {
 
 // ============== MAIN FUNCTION ================
 
-function changeElement(newElement, direction) {
+function changeElement(findElement, direction) {
   removeOutline();
-  currentElement = newElement(direction);
+  currentElement = findElement(direction);
   addOutline();
   manageButtons();
   console.log(currentElement);
