@@ -1,6 +1,7 @@
 const outlinerFormHTML = `
 <style>
 .outliner__form-wrapper {
+  width: 261px;
   padding: 5px;
   opacity: 0.9;
   background-color: palegoldenrod;
