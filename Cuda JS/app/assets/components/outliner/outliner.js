@@ -115,37 +115,13 @@ function changeElement(findElement, direction) {
   console.log(currentElement);
 }
 
-// ============== COMMON FUNCTIONS ================
+// ============== SEARCH BY NAVIGATION ================
 
 function findNeighbour(direction) {
   return currentElement[direction];
 }
 
-function addOutline() {
-  currentElement.classList.add("outlined-element");
-}
-
-function removeOutline() {
-  const element = document.querySelector(".outlined-element");
-  if (element) element.classList.remove("outlined-element");
-}
-
-function manageButtons() {
-  manageButton(directionPrevious, buttonIdPrevious);
-  manageButton(directionNext, buttonIdNext);
-  manageButton(directionParent, buttonIdParent);
-  manageButton(directionChildren, buttonIdChildren);
-}
-
-function manageButton(direction, buttonId) {
-  if (currentElement[direction]) {
-    document.getElementById(buttonId).disabled = false;
-  } else {
-    document.getElementById(buttonId).disabled = true;
-  }
-}
-
-// ============== SEARCHING BY NAME ================
+// ============== SEARCH BY NAME ================
 
 function findByName() {
   outlinerForm.addEventListener("click", returnSearchKey);
@@ -161,4 +137,32 @@ function returnSearchKey() {
 function changeElementByKey() {
   const key = returnSearchKey();
   return document.querySelector(key);
+}
+
+// ============== MANAGE OUTLINE ================
+
+function addOutline() {
+  currentElement.classList.add("outlined-element");
+}
+
+function removeOutline() {
+  const element = document.querySelector(".outlined-element");
+  if (element) element.classList.remove("outlined-element");
+}
+
+// ============== MANAGE BUTTONS ================
+
+function manageButtons() {
+  manageButton(directionPrevious, buttonIdPrevious);
+  manageButton(directionNext, buttonIdNext);
+  manageButton(directionParent, buttonIdParent);
+  manageButton(directionChildren, buttonIdChildren);
+}
+
+function manageButton(direction, buttonId) {
+  if (currentElement[direction]) {
+    document.getElementById(buttonId).disabled = false;
+  } else {
+    document.getElementById(buttonId).disabled = true;
+  }
 }
