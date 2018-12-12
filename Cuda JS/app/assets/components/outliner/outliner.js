@@ -34,11 +34,11 @@ const outlinerFormHTML = `
 }
 
 .outlined-element {
-  outline: 1px solid red;
+  outline: 2px solid red;
 }
 </style>
 
-  <form class="outliner__form" action="">
+  <form class="outliner__form" action="" dragable="true">
     <input
       type="text"
       name="element_name"
@@ -75,38 +75,50 @@ const outlinerForm = document.querySelector(".outliner__form");
 
 outlinerForm.addEventListener("click", handleClick);
 
-function handleClick(event) {
-  const target = event.target;
-  switch (target.id) {
-    case "btn-search":
+const directionPrevious = "previousElementSibling";
+const directionNext = "nextElementSibling";
+const directionParent = "parentNode";
+const directionChildren = "firstElementChild";
+
+const buttonIdSearch = "btn-search";
+const buttonIdPrevious = "btn-previous";
+const buttonIdNext = "btn-next";
+const buttonIdParent = "btn-parent";
+const buttonIdChildren = "btn-children";
+
+function handleClick() {
+  switch (event.target.id) {
+    case buttonIdSearch:
       changeElement(findByName);
       break;
-
-    case "btn-previous":
-      changeElement(findPrevious);
+    case buttonIdPrevious:
+      changeElement(findNeighbour, directionPrevious);
       break;
-
-    case "btn-next":
-      changeElement(findNext);
+    case buttonIdNext:
+      changeElement(findNeighbour, directionNext);
       break;
-
-    case "btn-parent":
-      changeElement(findParent);
+    case buttonIdParent:
+      changeElement(findNeighbour, directionParent);
       break;
-
-    case "btn-children":
-      changeElement(findChildren);
+    case buttonIdChildren:
+      changeElement(findNeighbour, directionChildren);
   }
+}
+
+// ============== MAIN FUNCTION ================
+
+function changeElement(newElement, direction) {
+  removeOutline();
+  currentElement = newElement(direction);
+  addOutline();
+  manageButtons();
+  console.log(currentElement);
 }
 
 // ============== COMMON FUNCTIONS ================
 
-function changeElement(newElement) {
-  removeOutline();
-  currentElement = newElement();
-  addOutline();
-  manageButtons();
-  console.log(currentElement);
+function findNeighbour(direction) {
+  return currentElement[direction];
 }
 
 function addOutline() {
@@ -119,23 +131,21 @@ function removeOutline() {
 }
 
 function manageButtons() {
-  manageButton(findPrevious, "btn-previous");
-  manageButton(findNext, "btn-next");
-  manageButton(findParent, "btn-parent");
-  manageButton(findChildren, "btn-children");
+  manageButton(directionPrevious, buttonIdPrevious);
+  manageButton(directionNext, buttonIdNext);
+  manageButton(directionParent, buttonIdParent);
+  manageButton(directionChildren, buttonIdChildren);
 }
 
 function manageButton(direction, buttonId) {
-  const button = document.getElementById(buttonId);
-  const neighbourElement = direction();
-  if (neighbourElement) {
-    button.disabled = false;
+  if (currentElement[direction]) {
+    document.getElementById(buttonId).disabled = false;
   } else {
-    button.disabled = true;
+    document.getElementById(buttonId).disabled = true;
   }
 }
 
-// ==================
+// ============== SEARCHING BY NAME ================
 
 function findByName() {
   outlinerForm.addEventListener("click", returnSearchKey);
@@ -151,26 +161,4 @@ function returnSearchKey() {
 function changeElementByKey() {
   const key = returnSearchKey();
   return document.querySelector(key);
-}
-
-// ==================
-
-function findPrevious() {
-  const newElement = currentElement.previousElementSibling;
-  return newElement;
-}
-
-function findNext() {
-  const newElement = currentElement.nextElementSibling;
-  return newElement;
-}
-
-function findParent() {
-  const newElement = currentElement.parentNode;
-  return newElement;
-}
-
-function findChildren() {
-  const newElement = currentElement.firstElementChild;
-  return newElement;
 }
