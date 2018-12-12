@@ -1,18 +1,21 @@
-/* elem.classList.add(cls) - добавляет класс
-elem.classList.remove(cls) - удаляет класс
-elem.classList.toggle(cls)
-*/
-
 const outlinerFormHTML = `
 <style>
-.outliner__form {
+.outliner__form-wrapper {
   padding: 5px;
   opacity: 0.9;
   background-color: palegoldenrod;
   border-radius: 3px;
   position: fixed;
-  right: 50px;
+  left: 70%;
   top: 50px;
+
+  display: flex;
+  flex-flow: column;
+}
+
+.outliner__form {
+  // background-color: palegoldenrod;
+  border-radius: 3px;
 }
 
 .outliner__element-name {
@@ -30,6 +33,16 @@ const outlinerFormHTML = `
   text-transform: uppercase;
 }
 
+.outliner__button-close {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: palevioletred;
+  border: none;
+
+  align-self: flex-end;
+}
+
 .outliner__button-search {
 }
 
@@ -38,7 +51,10 @@ const outlinerFormHTML = `
 }
 </style>
 
-  <form class="outliner__form" action="" dragable="true">
+<div class="outliner__form-wrapper">
+  <button id="btn-close" class="outliner__button outliner__button-close" type="button"></button>
+
+  <form class="outliner__form" action="">
     <input
       type="text"
       name="element_name"
@@ -62,6 +78,7 @@ const outlinerFormHTML = `
       </button>
     </nav>
   </form>
+  </div>
   `;
 
 const body = document.body;
@@ -71,9 +88,8 @@ body.insertAdjacentHTML("beforeend", outlinerFormHTML);
 // ============ CLICK PROCESSING ===============
 
 let currentElement = body;
-const outlinerForm = document.querySelector(".outliner__form");
 
-outlinerForm.addEventListener("click", handleClick);
+const outlinerForm = document.querySelector(".outliner__form-wrapper");
 
 const directionPrevious = "previousElementSibling";
 const directionNext = "nextElementSibling";
@@ -85,6 +101,9 @@ const buttonIdPrevious = "btn-previous";
 const buttonIdNext = "btn-next";
 const buttonIdParent = "btn-parent";
 const buttonIdChildren = "btn-children";
+const buttonIdClose = "btn-close";
+
+outlinerForm.addEventListener("click", handleClick);
 
 function handleClick() {
   switch (event.target.id) {
@@ -102,6 +121,9 @@ function handleClick() {
       break;
     case buttonIdChildren:
       changeElement(findNeighbour, directionChildren);
+    case buttonIdClose:
+      closeForm();
+      break;
   }
 }
 
@@ -160,9 +182,54 @@ function manageButtons() {
 }
 
 function manageButton(direction, buttonId) {
-  if (currentElement[direction]) {
-    document.getElementById(buttonId).disabled = false;
-  } else {
-    document.getElementById(buttonId).disabled = true;
+  document.getElementById(buttonId).disabled = !currentElement[direction];
+}
+
+// ============== CLOSE FORM ================
+
+function closeForm() {
+  outlinerForm.remove();
+}
+
+// ============== MOVE FORM ================
+
+outlinerForm.onmousedown = function mouseDown(event) {
+  var coords = getCoords(outlinerForm);
+  var shiftX = event.pageX - coords.left;
+  var shiftY = event.pageY - coords.top;
+
+  outlinerForm.style.position = "absolute";
+  outlinerForm.style.zIndex = 1000;
+
+  outlinerForm.ondragstart = function() {
+    return false;
+  };
+
+  function moveAt(event) {
+    outlinerForm.style.left = event.pageX - shiftX + "px";
+    outlinerForm.style.top = event.pageY - shiftY + "px";
   }
+
+  moveAt(event);
+
+  document.onmousemove = function(event) {
+    moveAt(event);
+  };
+
+  outlinerForm.onmouseup = function() {
+    document.onmousemove = null;
+    outlinerForm.onmouseup = null;
+  };
+};
+
+outlinerForm.ondragstart = function() {
+  return false;
+};
+
+function getCoords(elem) {
+  var box = elem.getBoundingClientRect();
+  return {
+    top: box.top + pageYOffset,
+    left: box.left + pageXOffset
+  };
 }
