@@ -53,17 +53,6 @@ class MyArr {
   }
 }
 
-// ==================== lENGTH ====================
-// Object.defineProperty(MyArr.prototype, "length", {
-//   get: function() {
-//     let counter = 0;
-//     for (let key in this) {
-//       counter++;
-//     }
-//     return counter;
-//   }
-// });
-
 // ===================== PUSH =====================
 MyArr.prototype.push = function() {
   let i = 0;
@@ -131,9 +120,10 @@ MyArr.prototype.reduce = function(callback, initValue) {
 
 // ===================== FILTER =====================
 MyArr.prototype.filter = function(callback) {
-  // + проверка, чтобы аргумент был функцией, и только один
+  // + проверка, чтобы аргумент был функцией
   // + как поступает оригинальный MAP, когда не может обработать элемент
   // + добавить возможность использования параметра thisArg
+  console.log(typeof callback);
   const newArray = new MyArr();
   for (let i = 0, arrLength = this.length; i < arrLength; i++) {
     if (callback(this[String(i)], i, this)) {
@@ -143,26 +133,45 @@ MyArr.prototype.filter = function(callback) {
   return newArray;
 };
 
-// =================== sort ===================
+// =================== SORT ===================
 MyArr.prototype.sort = function(callback) {
-  // + проверка, чтобы аргумент ...
   let arrLength = this.length;
   let buffer = this[String(0)];
-  for (let j = 0; j < arrLength; j++) {
-    let flag = 0;
 
-    for (let i = 0; i < arrLength - 1; i++) {
-      if (this[String(i)] > this[String(i + 1)]) {
-        buffer = this[String(i)];
-        this[String(i)] = this[String(i + 1)];
-        this[String(i + 1)] = buffer;
-        flag++;
+  switch (callback) {
+    case undefined:
+      for (let j = 0; j < arrLength; j++) {
+        let flag = 0;
+
+        for (let i = 0; i < arrLength - 1; i++) {
+          if (String(this[String(i)]) > String(this[String(i + 1)])) {
+            buffer = this[String(i)];
+            this[String(i)] = this[String(i + 1)];
+            this[String(i + 1)] = buffer;
+            flag++;
+          }
+        }
+        if (flag == 0) break;
       }
-    }
+      return this;
+      break;
 
-    if (flag == 0) break;
+    default:
+      for (let j = 0; j < arrLength; j++) {
+        let flag = 0;
+
+        for (let i = 0; i < arrLength - 1; i++) {
+          if (callback(this[String(i)], this[String(i + 1)]) < 0) {
+            buffer = this[String(i)];
+            this[String(i)] = this[String(i + 1)];
+            this[String(i + 1)] = buffer;
+            flag++;
+          }
+        }
+        if (flag == 0) break;
+      }
+      return this;
   }
-  return this;
 };
 
 // ===================== toString =====================
@@ -207,7 +216,7 @@ const arr1 = new MyArr("sdfs", 5, { name: "ivan" }, [15, 12]);
 //   // return item;
 // }
 // // const arr3 = arr2.map(item => item * 2);
-// const arr3 = arr2.map(someFunction);
+// const arr3 = arr2.map();
 // console.log(arr3);
 // // console.log(arr3[1] === arr2[1]);
 
@@ -247,8 +256,8 @@ const arr1 = new MyArr("sdfs", 5, { name: "ivan" }, [15, 12]);
 // console.log(arr3);
 
 // === Test SORT
-// const arr2 = new MyArr(5, 2, 3, 8, 6, 0, 89, 7, 90);
-// arr2.sort();
+// const arr2 = new MyArr(5, 2, 3, 8, 6, 0, 89, 7, 90, 100, 2000);
+// arr2.sort((a, b) => a - b);
 // console.log(arr2);
 
 // === Test ToString
