@@ -40,7 +40,7 @@ class MyArr {
   constructor() {
     // + добавить проверку на пустое значение - возвращать undefined
     for (let i = 0, argLength = arguments.length; i < argLength; i += 1) {
-      this[String(i)] = arguments[i];
+      this[i] = arguments[i];
     }
 
     return;
@@ -59,27 +59,6 @@ class MyArr {
       if (this.hasOwnProperty(key)) yield this[key];
     }
   }
-  // [Symbol.iterator]() {
-  //   return this;
-  // }
-
-  // next() {
-  //   if (!(i >= 0)) {
-  //     i = 0;
-  //   }
-
-  //   if (i <= this.length) {
-  //     return {
-  //       done: false,
-  //       value: this[String(i++)]
-  //     };
-  //   } else {
-  //     delete this[String(i)];
-  //     return {
-  //       done: true
-  //     };
-  //   }
-  // }
 }
 
 // ===================== PUSH =====================
@@ -99,35 +78,57 @@ MyArr.prototype.pop = function() {
 };
 
 // ===================== FROM =====================
-MyArr.from = function() {
+MyArr.from = function(arrayLike, callback, thisArg) {
   const newArray = new MyArr();
-  if (arguments.length > 1)
-    return console.log("You should't pass more that 1 argument to this method");
 
-  for (let i = 0, argLength = arguments[0].length; i < argLength; i += 1) {
-    newArray.push(arguments[0][i]);
+  if (thisArg) {
+    for (let i = 0, argLength = arrayLike.length; i < argLength; i += 1) {
+      newArray.push(callback.call(thisArg, arrayLike[i], i, arrayLike));
+    }
+  }
+
+  if (callback && !thisArg) {
+    for (let i = 0, argLength = arrayLike.length; i < argLength; i += 1) {
+      newArray.push(callback(arrayLike[i], i, arrayLike));
+    }
+  }
+
+  if (!callback && !thisArg) {
+    for (let i = 0, argLength = arrayLike.length; i < argLength; i += 1) {
+      newArray.push(arrayLike[i]);
+    }
   }
 
   return newArray;
 };
 
 // ===================== MAP =====================
-MyArr.prototype.map = function(callback) {
-  // + проверка, чтобы аргумент был функцией, и только один
-  // + как поступает оригинальный MAP, когда не может обработать элемент
+MyArr.prototype.map = function(callback, thisArg) {
   const newArray = new MyArr();
-  for (let i = 0, arrLength = this.length; i < arrLength; i++) {
-    newArray.push(callback(this[String(i)], i, this));
+
+  if (thisArg) {
+    for (let i = 0, argLength = this.length; i < argLength; i += 1) {
+      newArray.push(callback.call(thisArg, this[i], i, this));
+    }
+  } else {
+    for (let i = 0, arrLength = this.length; i < arrLength; i++) {
+      newArray.push(callback(this[i], i, this));
+    }
   }
+
   return newArray;
 };
 
 // =================== forEach ===================
-MyArr.prototype.forEach = function(callback) {
-  // + проверка, чтобы аргумент был функцией, и только один
-  // + как поступает оригинальный MAP, когда не может обработать элемент
-  for (let i = 0, arrLength = this.length; i < arrLength; i++) {
-    callback(this[String(i)], i, this);
+MyArr.prototype.forEach = function(callback, thisArg) {
+  if (thisArg) {
+    for (let i = 0, argLength = this.length; i < argLength; i += 1) {
+      callback.call(thisArg, this[i], i, this);
+    }
+  } else {
+    for (let i = 0, arrLength = this.length; i < arrLength; i++) {
+      callback(this[i], i, this);
+    }
   }
   return undefined;
 };
@@ -141,23 +142,26 @@ MyArr.prototype.reduce = function(callback, initValue) {
   if (arrLength > 0) {
     for (let i = 0; i < arrLength; i++) {
       console.log(i);
-      accumulator = callback(accumulator, this[String(i)], i, this);
+      accumulator = callback(accumulator, this[i], i, this);
     }
   }
   return accumulator;
 };
 
 // ===================== FILTER =====================
-MyArr.prototype.filter = function(callback) {
-  // + проверка, чтобы аргумент был функцией
-  // + как поступает оригинальный MAP, когда не может обработать элемент
-  // + добавить возможность использования параметра thisArg
+MyArr.prototype.filter = function(callback, thisArg) {
   const newArray = new MyArr();
-  for (let i = 0, arrLength = this.length; i < arrLength; i++) {
-    if (callback(this[String(i)], i, this)) {
-      newArray.push(this[String(i)]);
+
+  if (thisArg) {
+    for (let i = 0, argLength = this.length; i < argLength; i += 1) {
+      if (callback.call(thisArg, this[i], i, this)) newArray.push(this[i]);
+    }
+  } else {
+    for (let i = 0, arrLength = this.length; i < arrLength; i++) {
+      if (callback(this[i], i, this)) newArray.push(this[i]);
     }
   }
+
   return newArray;
 };
 
@@ -172,9 +176,9 @@ MyArr.prototype.sort = function(callback) {
         let flag = 0;
 
         for (let i = 0; i < arrLength - 1; i++) {
-          if (String(this[String(i)]) > String(this[String(i + 1)])) {
-            buffer = this[String(i)];
-            this[String(i)] = this[String(i + 1)];
+          if (String(this[i]) > String(this[String(i + 1)])) {
+            buffer = this[i];
+            this[i] = this[String(i + 1)];
             this[String(i + 1)] = buffer;
             flag++;
           }
@@ -189,9 +193,9 @@ MyArr.prototype.sort = function(callback) {
         let flag = 0;
 
         for (let i = 0; i < arrLength - 1; i++) {
-          if (callback(this[String(i)], this[String(i + 1)]) < 0) {
-            buffer = this[String(i)];
-            this[String(i)] = this[String(i + 1)];
+          if (callback(this[i], this[String(i + 1)]) < 0) {
+            buffer = this[i];
+            this[i] = this[String(i + 1)];
             this[String(i + 1)] = buffer;
             flag++;
           }
@@ -209,7 +213,7 @@ MyArr.prototype.toString = function() {
 
   let newString = String(this[String(0)]);
   for (let i = 1; i < arrLength; i++) {
-    newString = newString + "," + this[String(i)];
+    newString = newString + "," + this[i];
   }
 
   return newString;
@@ -254,30 +258,37 @@ const arr1 = new MyArr("sdfs", 5, { name: "ivan" }, [15, 12]);
 // console.log(arr1);
 
 // === Test FROM
+// const objectAside = Object.create({ 0: 2 });
 // const arr2 = MyArr.from([[2, 1], { 0: 1, 1: "654" }, 3, "dsfsdf"]);
 // const arr2 = MyArr.from("sdfsdfs");
-// const arr2 = MyArr.from(123);
+// const arr2 = MyArr.from([1, 2, 3], someFunction, objectAside);
 // console.log(arr2);
+// const arr3 = Array.from([1, 2, 3], someFunction, objectAside);
+// console.log(arr3);
 
 // === Test MAP
 // const arr2 = new MyArr(1, 2, "abc", 4, 5);
 // function someFunction(item, index, array) {
-//   return `${item} is an element #${index}  in array ${array}`;
-//   // return item;
+//   return `${item} is an element #${index}  in array ${array} and!!! ${this[0]}`;
+// return item;
 // }
-// // const arr3 = arr2.map(item => item * 2);
-// const arr3 = arr2.map();
+// const objectAside = Object.create({ 0: 2 });
+// const arr3 = arr2.map(item => item * 2);
+// const arr3 = arr2.map(someFunction, objectAside);
 // console.log(arr3);
 // // console.log(arr3[1] === arr2[1]);
 
 // === Test forEach
+// const objectAside = Object.create({ 0: 2 });
 // const arr2 = new MyArr(1, 2, "abc", 4, 5);
 // const arr3 = new MyArr();
 // function someFunction(item, index, array) {
-//   // console.log(`${item} is an element #${index}  in array ${array}`);
+// console.log(
+// `${item} is an element #${index}  in array ${array} and!!! ${this[0]}`
+// );
 //   arr3[index] = item;
 // }
-// arr2.forEach(someFunction);
+// arr2.forEach(someFunction, objectAside);
 // console.log(arr2[1] === arr3[1]);
 
 // === Test REDUCE
@@ -298,9 +309,10 @@ const arr1 = new MyArr("sdfs", 5, { name: "ivan" }, [15, 12]);
 // console.log(b);
 
 // === Test FILTER
+// const objectAside = Object.create({ 0: 2 });
 // const arr2 = new MyArr(1, 256, "abc", 4, 51.56);
 // function someFunction(item, index, array) {
-//   return Number.isInteger(item);
+//   if (this[0] == 2) return Number.isInteger(item);
 // }
 // const arr3 = arr2.filter(someFunction);
 // console.log(arr3);
@@ -316,6 +328,6 @@ const arr1 = new MyArr("sdfs", 5, { name: "ivan" }, [15, 12]);
 // console.log(arr3);
 
 // === Test REST
-const realArr = [...arr1];
+// const realArr = [...arr1];
 // console.log(arr1.length);
-console.log(realArr);
+// console.log(realArr);
