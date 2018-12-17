@@ -42,6 +42,8 @@ class MyArr {
     for (let i = 0, argLength = arguments.length; i < argLength; i += 1) {
       this[String(i)] = arguments[i];
     }
+
+    return;
   }
 
   get length() {
@@ -51,6 +53,33 @@ class MyArr {
     }
     return counter;
   }
+
+  *[Symbol.iterator]() {
+    for (let key in this) {
+      if (this.hasOwnProperty(key)) yield this[key];
+    }
+  }
+  // [Symbol.iterator]() {
+  //   return this;
+  // }
+
+  // next() {
+  //   if (!(i >= 0)) {
+  //     i = 0;
+  //   }
+
+  //   if (i <= this.length) {
+  //     return {
+  //       done: false,
+  //       value: this[String(i++)]
+  //     };
+  //   } else {
+  //     delete this[String(i)];
+  //     return {
+  //       done: true
+  //     };
+  //   }
+  // }
 }
 
 // ===================== PUSH =====================
@@ -123,7 +152,6 @@ MyArr.prototype.filter = function(callback) {
   // + проверка, чтобы аргумент был функцией
   // + как поступает оригинальный MAP, когда не может обработать элемент
   // + добавить возможность использования параметра thisArg
-  console.log(typeof callback);
   const newArray = new MyArr();
   for (let i = 0, arrLength = this.length; i < arrLength; i++) {
     if (callback(this[String(i)], i, this)) {
@@ -186,6 +214,28 @@ MyArr.prototype.toString = function() {
 
   return newString;
 };
+
+// ===================== REST =====================
+// MyArr.prototype[Symbol.iterator] = function() {
+//   let i = 0;
+//   const arrLength = this.length;
+//   const that = this;
+
+//   return {
+//     next(arr1) {
+//       if (i < arrLength) {
+//         return {
+//           done: false,
+//           value: that[String(i++)]
+//         };
+//       } else {
+//         return {
+//           done: true
+//         };
+//       }
+//     }
+//   };
+// };
 
 // === Test INPUT DATA
 const arr1 = new MyArr("sdfs", 5, { name: "ivan" }, [15, 12]);
@@ -264,3 +314,8 @@ const arr1 = new MyArr("sdfs", 5, { name: "ivan" }, [15, 12]);
 // const arr2 = new MyArr([2, 1], { 0: 1, 1: "654" }, 3, "dsfsdf");
 // const arr3 = arr2.toString();
 // console.log(arr3);
+
+// === Test REST
+const realArr = [...arr1];
+// console.log(arr1.length);
+console.log(realArr);
