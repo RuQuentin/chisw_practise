@@ -19,7 +19,6 @@ describe("test custom class Array", () => {
 
     test("call with 3 arguments", () => {
       const arr = [1, 2, 3, 5];
-      const cb = jest.fn();
       arr.map(cb);
       // expect(cb).toBeCalledWith(1, 0, arr);
       expect(cb).toBeGreaterThan(0);

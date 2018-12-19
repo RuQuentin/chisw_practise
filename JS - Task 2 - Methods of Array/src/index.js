@@ -2,7 +2,7 @@
 
 // window.MyArray = MyArray;
 
-// class MyArr {
+// class MyArray {
 //   constructor() {
 //     this.args = arguments;
 //   }
@@ -14,9 +14,9 @@
 
 // Запрещено - использовать настоящий массив в любом его виде, а так же классы Map, Set
 
-// 1. создать класс myArray, который будет работать следующим образом -
+// 1. создать класс MyArray, который будет работать следующим образом -
 
-//   const arr = new myArray(1 ,4, [2,4], { name: 'ivan' });
+//   const arr = new MyArray(1 ,4, [2,4], { name: 'ivan' });
 //   arr[0] === 1; // true
 //   arr[3].name === 'ivan'; // true
 //   arr.length === 4; // true
@@ -36,13 +36,20 @@
 //    хочу чтоб можно было сделать так:
 //  const realArr = [...arr]; // результат - настоящий массив [1 ,4, [2,4], { name: 'ivan' }]
 
-class MyArr {
+class MyArray {
   constructor() {
-    // + добавить проверку на пустое значение - возвращать undefined
-    for (let i = 0, argLength = arguments.length; i < argLength; i += 1) {
-      this[i] = arguments[i];
-    }
+    let argLength = arguments.length;
 
+    if (argLength === 1 && typeof arguments[0] == "number") {
+      for (let i = 0; i < arguments[0]; i += 1) {
+        this[i] = undefined;
+      }
+      return;
+    } else {
+      for (let i = 0; i < argLength; i += 1) {
+        this[i] = arguments[i];
+      }
+    }
     return;
   }
 
@@ -62,7 +69,7 @@ class MyArr {
 }
 
 // ===================== PUSH =====================
-MyArr.prototype.push = function() {
+MyArray.prototype.push = function() {
   let i = 0;
   for (i = 0, argLength = arguments.length; i < argLength; i += 1) {
     this[String(this.length)] = arguments[i];
@@ -71,31 +78,31 @@ MyArr.prototype.push = function() {
 };
 
 // ===================== POP =====================
-MyArr.prototype.pop = function() {
+MyArray.prototype.pop = function() {
   const lastItem = this[String(this.length - 1)];
   delete this[String(this.length - 1)];
   return lastItem;
 };
 
 // ===================== FROM =====================
-MyArr.from = function(arrayLike, callback, thisArg) {
-  const newArray = new MyArr();
+MyArray.from = function(arrayLike, callback, thisArg) {
+  const newArray = new MyArray();
 
   if (thisArg) {
     for (let i = 0, argLength = arrayLike.length; i < argLength; i += 1) {
-      newArray.push(callback.call(thisArg, arrayLike[i], i, arrayLike));
+      newArray[i] = callback.call(thisArg, arrayLike[i], i, arrayLike);
     }
   }
 
   if (callback && !thisArg) {
     for (let i = 0, argLength = arrayLike.length; i < argLength; i += 1) {
-      newArray.push(callback(arrayLike[i], i, arrayLike));
+      newArray[i] = callback(arrayLike[i], i, arrayLike);
     }
   }
 
   if (!callback && !thisArg) {
     for (let i = 0, argLength = arrayLike.length; i < argLength; i += 1) {
-      newArray.push(arrayLike[i]);
+      newArray[i] = arrayLike[i];
     }
   }
 
@@ -103,8 +110,8 @@ MyArr.from = function(arrayLike, callback, thisArg) {
 };
 
 // ===================== MAP =====================
-MyArr.prototype.map = function(callback, thisArg) {
-  const newArray = new MyArr();
+MyArray.prototype.map = function(callback, thisArg) {
+  const newArray = new MyArray();
 
   if (thisArg) {
     for (let i = 0, argLength = this.length; i < argLength; i += 1) {
@@ -120,7 +127,7 @@ MyArr.prototype.map = function(callback, thisArg) {
 };
 
 // =================== forEach ===================
-MyArr.prototype.forEach = function(callback, thisArg) {
+MyArray.prototype.forEach = function(callback, thisArg) {
   if (thisArg) {
     for (let i = 0, argLength = this.length; i < argLength; i += 1) {
       callback.call(thisArg, this[i], i, this);
@@ -134,9 +141,7 @@ MyArr.prototype.forEach = function(callback, thisArg) {
 };
 
 // =================== REDUCE ====================
-MyArr.prototype.reduce = function(callback, initValue) {
-  // + проверка, чтобы аргумент был функцией, и только один
-  // + как поступает оригинальный REDUCE, когда не может обработать элемент
+MyArray.prototype.reduce = function(callback, initValue) {
   let accumulator = initValue ? initValue : 0;
   const arrLength = this.length;
   if (arrLength > 0) {
@@ -149,8 +154,8 @@ MyArr.prototype.reduce = function(callback, initValue) {
 };
 
 // ===================== FILTER =====================
-MyArr.prototype.filter = function(callback, thisArg) {
-  const newArray = new MyArr();
+MyArray.prototype.filter = function(callback, thisArg) {
+  const newArray = new MyArray();
 
   if (thisArg) {
     for (let i = 0, argLength = this.length; i < argLength; i += 1) {
@@ -166,7 +171,7 @@ MyArr.prototype.filter = function(callback, thisArg) {
 };
 
 // =================== SORT ===================
-MyArr.prototype.sort = function(callback) {
+MyArray.prototype.sort = function(callback) {
   let arrLength = this.length;
   let buffer = this[String(0)];
 
@@ -207,7 +212,7 @@ MyArr.prototype.sort = function(callback) {
 };
 
 // ===================== toString =====================
-MyArr.prototype.toString = function() {
+MyArray.prototype.toString = function() {
   const arrLength = this.length;
   if (arrLength === 0) return "";
 
@@ -220,7 +225,7 @@ MyArr.prototype.toString = function() {
 };
 
 // ===================== REST =====================
-// MyArr.prototype[Symbol.iterator] = function() {
+// MyArray.prototype[Symbol.iterator] = function() {
 //   let i = 0;
 //   const arrLength = this.length;
 //   const that = this;
@@ -242,11 +247,16 @@ MyArr.prototype.toString = function() {
 // };
 
 // === Test INPUT DATA
-const arr1 = new MyArr("sdfs", 5, { name: "ivan" }, [15, 12]);
+const arr1 = new MyArray("sdfs", 5, { name: "ivan" }, [15, 12]);
+
+// === Test CONSTRUCTOR
+// const arr2 = new MyArray(2, "h", "uiu", 1);
+// console.log(arr2.length);
+// console.log(arr2);
 
 // === Test LENGTH
 // console.log(arr1.length);
-// console.log(arr1);
+// console.log(arr1.hasOwnProperty(length));
 
 // === Test PUSH
 // arr1.push(6, 12);
@@ -259,15 +269,15 @@ const arr1 = new MyArr("sdfs", 5, { name: "ivan" }, [15, 12]);
 
 // === Test FROM
 // const objectAside = Object.create({ 0: 2 });
-// const arr2 = MyArr.from([[2, 1], { 0: 1, 1: "654" }, 3, "dsfsdf"]);
-// const arr2 = MyArr.from("sdfsdfs");
-// const arr2 = MyArr.from([1, 2, 3], someFunction, objectAside);
+// const arr2 = MyArray.from([[2, 1], { 0: 1, 1: "654" }, 3, "dsfsdf"]);
+// const arr2 = MyArray.from("sdfsdfs");
+// const arr2 = MyArray.from([1, 2, 3], someFunction, objectAside);
 // console.log(arr2);
 // const arr3 = Array.from([1, 2, 3], someFunction, objectAside);
 // console.log(arr3);
 
 // === Test MAP
-// const arr2 = new MyArr(1, 2, "abc", 4, 5);
+// const arr2 = new MyArray(1, 2, "abc", 4, 5);
 // function someFunction(item, index, array) {
 //   return `${item} is an element #${index}  in array ${array} and!!! ${this[0]}`;
 // return item;
@@ -280,8 +290,8 @@ const arr1 = new MyArr("sdfs", 5, { name: "ivan" }, [15, 12]);
 
 // === Test forEach
 // const objectAside = Object.create({ 0: 2 });
-// const arr2 = new MyArr(1, 2, "abc", 4, 5);
-// const arr3 = new MyArr();
+// const arr2 = new MyArray(1, 2, "abc", 4, 5);
+// const arr3 = new MyArray();
 // function someFunction(item, index, array) {
 // console.log(
 // `${item} is an element #${index}  in array ${array} and!!! ${this[0]}`
@@ -299,7 +309,7 @@ const arr1 = new MyArr("sdfs", 5, { name: "ivan" }, [15, 12]);
 //   return accumulator.concat(item);
 // }
 // const initValue = 52;
-// const arr2 = new MyArr([0, 1], [2, 3], [4, 5]);
+// const arr2 = new MyArray([0, 1], [2, 3], [4, 5]);
 // let b = arr2.reduce(callback, [-2, -1]);
 // console.log(b);
 
@@ -310,7 +320,7 @@ const arr1 = new MyArr("sdfs", 5, { name: "ivan" }, [15, 12]);
 
 // === Test FILTER
 // const objectAside = Object.create({ 0: 2 });
-// const arr2 = new MyArr(1, 256, "abc", 4, 51.56);
+// const arr2 = new MyArray(1, 256, "abc", 4, 51.56);
 // function someFunction(item, index, array) {
 //   if (this[0] == 2) return Number.isInteger(item);
 // }
@@ -318,12 +328,12 @@ const arr1 = new MyArr("sdfs", 5, { name: "ivan" }, [15, 12]);
 // console.log(arr3);
 
 // === Test SORT
-// const arr2 = new MyArr(5, 2, 3, 8, 6, 0, 89, 7, 90, 100, 2000);
+// const arr2 = new MyArray(5, 2, 3, 8, 6, 0, 89, 7, 90, 100, 2000);
 // arr2.sort((a, b) => a - b);
 // console.log(arr2);
 
 // === Test ToString
-// const arr2 = new MyArr([2, 1], { 0: 1, 1: "654" }, 3, "dsfsdf");
+// const arr2 = new MyArray([2, 1], { 0: 1, 1: "654" }, 3, "dsfsdf");
 // const arr3 = arr2.toString();
 // console.log(arr3);
 
